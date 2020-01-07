@@ -16,8 +16,51 @@ typedef struct Auto {
 int main() {
 
 
+    int eingabe;
+
+
+    //Das Menü wird eingeblendet
+    printf("Was wollen Sie machen?\n"
+        "1 -> Liste erstellen\n"
+        "2 -> Liste loeschen\n"
+        "3 -> Element loeschen\n"
+        "4 -> Liste sortieren\n"
+        "5 -> Liste ausgeben\n"
+        "6 -> Programm beenden\n\n");
+
+    scanf_s("%i", &eingabe);
+
+    //Es wird der eingegebene Wert überprüft
+    if (eingabe == 1)
+    {
+        printf("Liste wird erstellt!\n");
+    }
+    else if (eingabe == 2)
+    {
+        printf("Liste wird geloescht!\n");
+    }
+    else if (eingabe == 3)
+    {
+        printf("Element wird geloescht!\n");
+    }
+    else if (eingabe == 4)
+    {
+        printf("Liste wird sortiert!\n");
+    }
+    else if (eingabe == 5)
+    {
+        printf("Liste wird ausgegeben!\n");
+    }
+    else
+    {
+        system("pause");
+    }
+
+
+  system("pause");
   return 0;
 }
+
 
 void random() {
   // Zufallszahlengenerator initialiseren
@@ -38,6 +81,7 @@ void random() {
   system("pause");
 }
 
+//Erstellt die Liste
 void Liste() {
 
   int Anzahl = 10;
@@ -61,9 +105,9 @@ void Liste() {
   // Auf Tastendruck warten
   system("Pause");
 
-
 }
 
+//Löscht ein Element
 void ElementLöschen(/*Pointer auf Element, Pointer auf "Start"*/) {
 
 

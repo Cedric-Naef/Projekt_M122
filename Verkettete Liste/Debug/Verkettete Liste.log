@@ -1,0 +1,5 @@
+﻿  Main.cpp
+C:\Users\Cedric\Documents\GitHub\Projekt_M122\Verkettete Liste\Main.cpp(143,12): warning C4473: "printf": nicht genügend Argumente für Formatzeichenfolge übergeben
+C:\Users\Cedric\Documents\GitHub\Projekt_M122\Verkettete Liste\Main.cpp(143,12): message : Platzhalter und deren Parameter erwarten 3 variadic-Argumente, es wurden aber 1 variadic-Argumente bereitgestellt.
+C:\Users\Cedric\Documents\GitHub\Projekt_M122\Verkettete Liste\Main.cpp(143,12): message : Das fehlende variadic-Argument "2" ist für die Zeichenfolge "%i" erforderlich.
+  Verkettete Liste.vcxproj -> C:\Users\Cedric\Documents\GitHub\Projekt_M122\Debug\Verkettete Liste.exe

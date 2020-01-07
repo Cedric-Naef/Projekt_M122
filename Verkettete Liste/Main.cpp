@@ -64,8 +64,8 @@ void Liste() {
 
 }
 
-void ElementLöschen(/*Pointer auf Element, Pointer auf Start*/) {
+void ElementLöschen(/*Pointer auf Element, Pointer auf "Start"*/) {
 
 
-  //return "start"
+  //return "Start"
 }

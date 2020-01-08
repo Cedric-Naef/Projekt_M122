@@ -32,5 +32,8 @@
     <ClInclude Include="Functions.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="StructAuto.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

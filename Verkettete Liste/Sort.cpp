@@ -1,5 +1,9 @@
 #include "stdio.h"
 #include "stdlib.h"
+#include "time.h"
+#include "Sort.h"
+#include "Main.h"
+
 
 void bubblesort(int *array, int length)
 {
@@ -17,4 +21,21 @@ void bubblesort(int *array, int length)
       }
     }
   }
+}
+
+void CreateList(int& Anzahl)
+{
+    //Anzahl der Elemente eingeben
+    printf("Geben Sie die Anzahl der Elemente ein, die Sie wollen\n");
+    scanf_s("%i", &Anzahl);
+    struAuto* pStart = NULL;
+
+    // Elemente erzeugen, mit Daten abfüllen   
+    for (int i = 0; i < Anzahl; i++) {
+        struAuto* pAuto = (struAuto*)malloc(sizeof(struAuto));
+        pAuto->Jahrgang = Anzahl - i;
+        pAuto->pNext = NULL;
+        if (i != 0) pAuto->pNext = pStart;
+        pStart = pAuto;
+    }
 }

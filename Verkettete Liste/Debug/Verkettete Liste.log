@@ -1,5 +1,8 @@
 ﻿  Main.cpp
-C:\Users\Cedric\Documents\GitHub\Projekt_M122\Verkettete Liste\Main.cpp(68,20): warning C4473: "printf": nicht genügend Argumente für Formatzeichenfolge übergeben
-C:\Users\Cedric\Documents\GitHub\Projekt_M122\Verkettete Liste\Main.cpp(68,20): message : Platzhalter und deren Parameter erwarten 3 variadic-Argumente, es wurden aber 1 variadic-Argumente bereitgestellt.
-C:\Users\Cedric\Documents\GitHub\Projekt_M122\Verkettete Liste\Main.cpp(68,20): message : Das fehlende variadic-Argument "2" ist für die Zeichenfolge "%i" erforderlich.
-  Verkettete Liste.vcxproj -> C:\Users\Cedric\Documents\GitHub\Projekt_M122\Debug\Verkettete Liste.exe
+C:\Users\CR\Documents\GitHub\Projekt_M122\Verkettete Liste\Main.cpp(71,20): warning C4473: 'printf' : not enough arguments passed for format string
+C:\Users\CR\Documents\GitHub\Projekt_M122\Verkettete Liste\Main.cpp(71,20): message : placeholders and their parameters expect 3 variadic arguments, but 1 were provided
+C:\Users\CR\Documents\GitHub\Projekt_M122\Verkettete Liste\Main.cpp(71,20): message : the missing variadic argument 2 is required by format string '%i'
+  Sort.cpp
+  Generating Code...
+  LINK : C:\Users\CR\Documents\GitHub\Projekt_M122\Debug\Verkettete Liste.exe not found or not built by the last incremental link; performing full link
+  Verkettete Liste.vcxproj -> C:\Users\CR\Documents\GitHub\Projekt_M122\Debug\Verkettete Liste.exe

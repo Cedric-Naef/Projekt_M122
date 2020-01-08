@@ -1,7 +1,8 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "time.h"
-#include "Header.h"
+#include "Sort.h"
+#include "Main.h"
 
 
 typedef struct Auto {
@@ -32,54 +33,37 @@ int main() {
 
     scanf_s("%i", &eingabe);
 
-    //Es wird der eingegebene Wert überprüft
-    if (eingabe == 1)
+    switch (eingabe)
     {
-        //Liste erstellen
-        
-        //Anzahl der Elemente eingeben
-        printf("Geben Sie die Anzahl der Elemente ein, die Sie wollen\n");
-        scanf_s("%i", &Anzahl);
-        struAuto* pStart = NULL;
-
-        // Elemente erzeugen, mit Daten abfüllen   
-        for (int i = 0; i < Anzahl; i++) {
-            struAuto* pAuto = (struAuto*)malloc(sizeof(struAuto));
-            pAuto->Jahrgang = Anzahl - i;
-            pAuto->pNext = NULL;
-            if (i != 0) pAuto->pNext = pStart;
-            pStart = pAuto;
-        }
-    }
-    else if (eingabe == 2)
-    {
+    case 1:
         printf("Liste wird geloescht!\n");
-    }
-    else if (eingabe == 3)
-    {
+        break;
+
+    case 2:
         printf("Element wird geloescht!\n");
-    }
-    else if (eingabe == 4)
-    {
+        break;
+    case 3:
+        printf("Element geslöscht\n");
+        break;
+    case 4:
         printf("Liste wird sortiert!\n");
-    }
-    else if (eingabe == 5)
-    {
-        // Liste ausgeben   
+        break;
+    case 5:
         for (struAuto* pAto = pStart; pAto != NULL; pAto = pAto->pNext)
         {
             printf("Marke: %c\n Jahrgang: %i\n Preis: %d\n", pAto->Jahrgang);
         }
-    }
-    else
-    {
-        //Programm beenden
-        system("pause");
-        return 0;
+
+    default:
+        printf("Eingabe ungültig");
     }
 
-
+    //Programm beenden
+    system("pause");
+    return 0;
 }
+
+
 
 
 void random() {

@@ -10,12 +10,11 @@
 
 
 
-int main() {
-
-    int Anzahl;
+int main()
+{
     struAuto* pStart = NULL;
 
-    int eingabe;
+    int UserInput;
 
 
     //Das Menü wird eingeblendet
@@ -27,9 +26,10 @@ int main() {
         "5 -> Liste ausgeben\n"
         "6 -> Programm beenden\n\n");
 
-    scanf_s("%i", &eingabe);
+    scanf_s("%i", &UserInput);
 
-    switch (eingabe)
+
+    switch (UserInput)
     {
         case 1:
             printf("Liste wird geloescht!\n");

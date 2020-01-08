@@ -8,6 +8,7 @@
 #include "StructAuto.h"
 
 
+
 void bubblesort(int *array, int length)
 {
   int i, j, tmp;
@@ -64,10 +65,10 @@ void random() {
 
 void PrintList(struAuto *pAuto)
 {
-    for (struAuto* pAto = pStart; pAto != NULL; pAto = pAto->pNext)
-    {
-        printf("Marke: %c\n Jahrgang: %i\n Preis: %d\n", pAto->Jahrgang);
-    }
+    //for (struAuto* pAto = pStart; pAto != NULL; pAto = pAto->pNext)
+    //{
+    //    printf("Marke: %c\n Jahrgang: %i\n Preis: %d\n", pAto->Jahrgang);
+    //}
 }
 
 //Löscht ein Element

@@ -15,6 +15,8 @@ typedef struct Auto {
 
 int main() {
 
+    int Anzahl;
+    struAuto* pStart = NULL;
 
     int eingabe;
 
@@ -33,7 +35,21 @@ int main() {
     //Es wird der eingegebene Wert überprüft
     if (eingabe == 1)
     {
-        printf("Liste wird erstellt!\n");
+        //Liste erstellen
+        
+        //Anzahl der Elemente eingeben
+        printf("Geben Sie die Anzahl der Elemente ein, die Sie wollen\n");
+        scanf_s("%i", &Anzahl);
+        struAuto* pStart = NULL;
+
+        // Elemente erzeugen, mit Daten abfüllen   
+        for (int i = 0; i < Anzahl; i++) {
+            struAuto* pAuto = (struAuto*)malloc(sizeof(struAuto));
+            pAuto->Jahrgang = Anzahl - i;
+            pAuto->pNext = NULL;
+            if (i != 0) pAuto->pNext = pStart;
+            pStart = pAuto;
+        }
     }
     else if (eingabe == 2)
     {
@@ -49,16 +65,20 @@ int main() {
     }
     else if (eingabe == 5)
     {
-        printf("Liste wird ausgegeben!\n");
+        // Liste ausgeben   
+        for (struAuto* pAto = pStart; pAto != NULL; pAto = pAto->pNext)
+        {
+            printf("Marke: %c\n Jahrgang: %i\n Preis: %d\n", pAto->Jahrgang);
+        }
     }
     else
     {
+        //Programm beenden
         system("pause");
+        return 0;
     }
 
 
-  system("pause");
-  return 0;
 }
 
 
@@ -79,32 +99,6 @@ void random() {
   // Programmende
   printf("\n");
   system("pause");
-}
-
-//Erstellt die Liste
-void Liste() {
-
-  int Anzahl = 10;
-  struAuto *pStart = NULL;
-
-  // Elemente erzeugen, mit Daten abfüllen   
-  for (int i = 0; i < Anzahl; i++) {
-    struAuto *pAuto = (struAuto*)malloc(sizeof(struAuto));
-    pAuto->Jahrgang = Anzahl - i;
-    pAuto->pNext = NULL;
-    if (i != 0) pAuto->pNext = pStart;
-    pStart = pAuto;
-  }
-
-  // Liste ausgeben   
-  for (struAuto* pAto = pStart; pAto != NULL; pAto = pAto->pNext)
-  {
-    printf("Marke: %c\n Jahrgang: %i\n Preis: %d\n", pAto->Jahrgang);
-  }
-
-  // Auf Tastendruck warten
-  system("Pause");
-
 }
 
 //Löscht ein Element

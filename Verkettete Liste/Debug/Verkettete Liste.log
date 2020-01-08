@@ -1,8 +1,21 @@
 ﻿  Main.cpp
-C:\Users\CR\Documents\GitHub\Projekt_M122\Verkettete Liste\Main.cpp(71,20): warning C4473: 'printf' : not enough arguments passed for format string
-C:\Users\CR\Documents\GitHub\Projekt_M122\Verkettete Liste\Main.cpp(71,20): message : placeholders and their parameters expect 3 variadic arguments, but 1 were provided
-C:\Users\CR\Documents\GitHub\Projekt_M122\Verkettete Liste\Main.cpp(71,20): message : the missing variadic argument 2 is required by format string '%i'
-  Sort.cpp
+C:\Users\CR\Documents\GitHub\Projekt_M122\Verkettete Liste\Main.cpp(15,9): warning C4101: 'Anzahl': unreferenced local variable
+  Functions.cpp
+C:\Users\CR\Documents\GitHub\Projekt_M122\Verkettete Liste\Functions.cpp(38,60): error C2027: use of undefined type 'struAuto'
+C:\Users\CR\Documents\GitHub\Projekt_M122\Verkettete Liste\StructAuto.h(2): message : see declaration of 'struAuto'
+C:\Users\CR\Documents\GitHub\Projekt_M122\Verkettete Liste\Functions.cpp(39,14): error C2027: use of undefined type 'struAuto'
+C:\Users\CR\Documents\GitHub\Projekt_M122\Verkettete Liste\StructAuto.h(2): message : see declaration of 'struAuto'
+C:\Users\CR\Documents\GitHub\Projekt_M122\Verkettete Liste\Functions.cpp(40,14): error C2027: use of undefined type 'struAuto'
+C:\Users\CR\Documents\GitHub\Projekt_M122\Verkettete Liste\StructAuto.h(2): message : see declaration of 'struAuto'
+C:\Users\CR\Documents\GitHub\Projekt_M122\Verkettete Liste\Functions.cpp(41,26): error C2027: use of undefined type 'struAuto'
+C:\Users\CR\Documents\GitHub\Projekt_M122\Verkettete Liste\StructAuto.h(2): message : see declaration of 'struAuto'
+C:\Users\CR\Documents\GitHub\Projekt_M122\Verkettete Liste\Functions.cpp(67,27): error C2065: 'pStart': undeclared identifier
+C:\Users\CR\Documents\GitHub\Projekt_M122\Verkettete Liste\Functions.cpp(67,60): error C2027: use of undefined type 'struAuto'
+C:\Users\CR\Documents\GitHub\Projekt_M122\Verkettete Liste\StructAuto.h(2): message : see declaration of 'struAuto'
+C:\Users\CR\Documents\GitHub\Projekt_M122\Verkettete Liste\Functions.cpp(69,62): error C2027: use of undefined type 'struAuto'
+C:\Users\CR\Documents\GitHub\Projekt_M122\Verkettete Liste\StructAuto.h(2): message : see declaration of 'struAuto'
+C:\Users\CR\Documents\GitHub\Projekt_M122\Verkettete Liste\Functions.cpp(69,16): warning C4473: 'printf' : not enough arguments passed for format string
+C:\Users\CR\Documents\GitHub\Projekt_M122\Verkettete Liste\Functions.cpp(69,16): message : placeholders and their parameters expect 3 variadic arguments, but 0 were provided
+C:\Users\CR\Documents\GitHub\Projekt_M122\Verkettete Liste\Functions.cpp(69,16): message : the missing variadic argument 1 is required by format string '%c'
+  StructAuto.cpp
   Generating Code...
-  LINK : C:\Users\CR\Documents\GitHub\Projekt_M122\Debug\Verkettete Liste.exe not found or not built by the last incremental link; performing full link
-  Verkettete Liste.vcxproj -> C:\Users\CR\Documents\GitHub\Projekt_M122\Debug\Verkettete Liste.exe

@@ -1,8 +1,11 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "time.h"
-#include "Functions.h"
+
+//Own header files
 #include "Main.h"
+#include "Functions.h"
+#include "StructAuto.h"
 
 
 
@@ -28,27 +31,32 @@ int main() {
 
     switch (eingabe)
     {
-    case 1:
-        printf("Liste wird geloescht!\n");
-        break;
+        case 1:
+            printf("Liste wird geloescht!\n");
+            break;
 
-    case 2:
-        printf("Element wird geloescht!\n");
-        break;
-    case 3:
-        printf("Element geslöscht\n");
-        break;
-    case 4:
-        printf("Liste wird sortiert!\n");
-        break;
-    case 5:
-        for (struAuto* pAto = pStart; pAto != NULL; pAto = pAto->pNext)
-        {
-            printf("Marke: %c\n Jahrgang: %i\n Preis: %d\n", pAto->Jahrgang);
-        }
+        case 2:
+            printf("Element wird geloescht!\n");
+            break;
 
-    default:
-        printf("Eingabe ungültig");
+        case 3:
+            printf("Element geslöscht\n");
+            break;
+
+        case 4:
+            printf("Liste wird sortiert!\n");
+            break;
+
+        case 5:
+            printf("Hier Ihre Liste");
+            break;
+
+        case 6:
+            printf("Programm wird beendet");
+            break;
+
+        default:
+            printf("Eingabe ungültig");
     }
 
     //Programm beenden

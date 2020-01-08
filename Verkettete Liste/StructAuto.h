@@ -1,2 +1,2 @@
 #pragma once
-struct Auto;
+struct struAuto;

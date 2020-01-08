@@ -1,8 +1,11 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "time.h"
-#include "Functions.h"
+
+//Own header files
 #include "Main.h"
+#include "Functions.h"
+#include "StructAuto.h"
 
 
 void bubblesort(int *array, int length)
@@ -59,8 +62,16 @@ void random() {
     system("pause");
 }
 
+void PrintList(struAuto *pAuto)
+{
+    for (struAuto* pAto = pStart; pAto != NULL; pAto = pAto->pNext)
+    {
+        printf("Marke: %c\n Jahrgang: %i\n Preis: %d\n", pAto->Jahrgang);
+    }
+}
+
 //Löscht ein Element
-void ElementLöschen(/*Pointer auf Element, Pointer auf "Start"*/) {
+void DeleteElement(/*Pointer auf Element, Pointer auf "Start"*/) {
 
 
     //return "Start"

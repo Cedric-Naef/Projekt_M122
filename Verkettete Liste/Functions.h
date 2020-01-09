@@ -16,3 +16,7 @@ struAuto* CreateList(int Anzahl);
 void Randomize();
 
 void PrintList(struAuto* pStart);
+
+struAuto* GetElement(struAuto* pStart, int Index);
+
+void PrintElement(struAuto* pElement);

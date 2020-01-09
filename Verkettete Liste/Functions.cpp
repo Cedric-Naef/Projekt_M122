@@ -33,17 +33,23 @@ struAuto* CreateList(int Anzahl)
     printf("Geben Sie die Anzahl der Elemente ein, die Sie wollen\n");
     //scanf_s("%i", &Anzahl);
     struAuto* pStart = NULL;
-
+    struAuto* pStart1 = NULL;
+    int Index = 0;
     // Elemente erzeugen, mit Daten abfüllen   
     for (int i = 0; i < Anzahl; i++) {
         struAuto* pAuto = (struAuto*)malloc(sizeof(struAuto));
-        pAuto->Jahrgang = Anzahl - i;
+        pAuto->Key = Index;
+        pAuto->Jahrgang = 1996;
         pAuto->Preis = 10000;
         pAuto->pNext = NULL;
-        if (i != 0) pAuto->pNext = pStart;
-        pStart = pAuto;
+        if (i != 0)
+            pAuto->pNext = pStart;
+        else
+            pStart1 = pAuto;
+        //pStart = pAuto;
+        Index++;
     }
-    return pStart;
+    return pStart1;
 }
 
 void Randomize() {
@@ -62,7 +68,7 @@ void Randomize() {
         jahrgang = rand() % 100;
         preis = rand() % 100;
         printf("%c, %i, %p\n", marke, jahrgang, preis);
-        return (marke, jahrgang, preis);
+        //return (marke, jahrgang, preis);
     }
     // Programmende
     printf("\n");
@@ -73,8 +79,29 @@ void PrintList(struAuto *pStart)
 {
     for (struAuto* pAto = pStart; pAto != NULL; pAto = pAto->pNext)
     {
-        printf("Marke: %s\n Jahrgang: %i\n Preis: %f\n", pAto->Marke, pAto->Jahrgang, pAto->Preis);
+        PrintElement(pStart);
     }
+}
+
+struAuto* GetElement(struAuto* pStart, int Index)
+{
+    int CurrentIndex = 0;
+
+    for (struAuto* pAto = pStart; pAto != NULL; pAto = pAto->pNext)
+    {
+        if (CurrentIndex == Index)
+        {
+            PrintElement(pStart);
+            break;
+            return pAto;
+        }
+        CurrentIndex++;
+    }
+}
+
+void PrintElement(struAuto* pElement)
+{
+    printf("Key: %d\n Marke: %s\n Jahrgang: %i\n Preis: %f\n", pElement->Key, pElement->Marke, pElement->Jahrgang, pElement->Preis);
 }
 
 //Löscht ein Element

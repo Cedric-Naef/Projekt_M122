@@ -8,8 +8,6 @@
 #include "StructAuto.h"
 
 
-
-
 int main()
 {
     struAuto* pStart = NULL;
@@ -33,11 +31,11 @@ int main()
     switch (UserInput)
     {
         case 1:
-            printf("Liste wird geloescht!\n");
+            printf("Liste wird erstellt!\n");
             break;
 
         case 2:
-            printf("Element wird geloescht!\n");
+            printf("Liste wird gelöscht!\n");
             break;
 
         case 3:
@@ -49,15 +47,15 @@ int main()
             break;
 
         case 5:
-            printf("Hier Ihre Liste");
+            printf("Hier Ihre Liste\n");
             break;
 
         case 6:
-            printf("Programm wird beendet");
+            printf("Programm wird beendet\n");
             break;
 
         default:
-            printf("Eingabe ungültig");
+            printf("Ungültige Eingabe");
             break;
     }
 

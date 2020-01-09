@@ -1,5 +1,5 @@
-﻿  Main.cpp
-  Functions.cpp
-  StructAuto.cpp
-  Generating Code...
-  Verkettete Liste.vcxproj -> C:\Users\CR\Documents\GitHub\Projekt_M122\Debug\Verkettete Liste.exe
+﻿  Functions.cpp
+C:\Users\Cedric\Documents\GitHub\Projekt_M122\Verkettete Liste\Functions.cpp(65,40): error C2562: "Randomize": "void"-Funktion gibt einen Wert zurück
+C:\Users\Cedric\Documents\GitHub\Projekt_M122\Verkettete Liste\Functions.cpp(49): message : Siehe Deklaration von "Randomize"
+  Main.cpp
+  Code wird generiert...

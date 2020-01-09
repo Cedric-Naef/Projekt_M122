@@ -56,17 +56,14 @@ void Randomize() {
     int jahrgang = 0;
     double preis = 0;
     
-    for (int iZahl = 0; iZahl < 10; iZahl++) {
+    // 4 Zufallszahlen und Strings generieren
+    for (int iZahl = 0; iZahl < 4; iZahl++) {
         marke[0] = 'A' + rand() % 26;
         marke[1] = '\0';
         jahrgang = rand() % 100;
         preis = rand() % 100;
-        printf("%c, %i, %p\n", marke, jahrgang, preis);
-        return (marke, jahrgang, preis);
+        //return (marke, jahrgang, preis);
     }
-    // Programmende
-    printf("\n");
-    system("pause");
 }
 
 void PrintList(struAuto *pStart)
@@ -85,9 +82,9 @@ void DeleteElement(Auto* pElement/*Pointer auf Element, Pointer auf "Start"*/) {
 }
 
 //Löscht die Liste
-void DeleteList() 
+struAuto* DeleteList()
 {
+    struAuto* pAuto = (struAuto*)malloc(sizeof(struAuto));
 
-
-    //free(list);
+   free(pAuto);
 }

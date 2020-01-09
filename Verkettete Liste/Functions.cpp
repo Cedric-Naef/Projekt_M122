@@ -33,23 +33,29 @@ struAuto* CreateList(int Anzahl)
     printf("Geben Sie die Anzahl der Elemente ein, die Sie wollen\n");
     //scanf_s("%i", &Anzahl);
     struAuto* pStart = NULL;
-
-    // Elemente erzeugen, mit Daten abfüllen   
+    struAuto* pStart1 = NULL;
+    int Index = 0;
+    // Elemente erzeugen, mit Daten abfï¿½llen   
     for (int i = 0; i < Anzahl; i++) {
         struAuto* pAuto = (struAuto*)malloc(sizeof(struAuto));
-        pAuto->Jahrgang = Anzahl - i;
+        pAuto->Key = Index;
+        pAuto->Jahrgang = 1996;
         pAuto->Preis = 10000;
         pAuto->pNext = NULL;
-        if (i != 0) pAuto->pNext = pStart;
-        pStart = pAuto;
+        if (i != 0)
+            pAuto->pNext = pStart;
+        else
+            pStart1 = pAuto;
+        //pStart = pAuto;
+        Index++;
     }
-    return pStart;
+    return pStart1;
 }
 
 void Randomize() {
     // Zufallszahlengenerator initialiseren
     // Damit bei jedem Programmstart andere Zahlen erzeugt werden, wird time() verwendet
-    // time() Gibt die Zeit als Sekunden zurück, die seit Mitternacht, dem 1. Januar 1970 verstrichen sind 
+    // time() Gibt die Zeit als Sekunden zurï¿½ck, die seit Mitternacht, dem 1. Januar 1970 verstrichen sind 
     srand((unsigned)time(NULL));
  
     char marke[40];
@@ -70,18 +76,39 @@ void PrintList(struAuto *pStart)
 {
     for (struAuto* pAto = pStart; pAto != NULL; pAto = pAto->pNext)
     {
-        printf("Marke: %s\n Jahrgang: %i\n Preis: %f\n", pAto->Marke, pAto->Jahrgang, pAto->Preis);
+        PrintElement(pStart);
     }
 }
 
-//Löscht ein Element
+struAuto* GetElement(struAuto* pStart, int Index)
+{
+    int CurrentIndex = 0;
+
+    for (struAuto* pAto = pStart; pAto != NULL; pAto = pAto->pNext)
+    {
+        if (CurrentIndex == Index)
+        {
+            PrintElement(pStart);
+            break;
+            return pAto;
+        }
+        CurrentIndex++;
+    }
+}
+
+void PrintElement(struAuto* pElement)
+{
+    printf("Key: %d\n Marke: %s\n Jahrgang: %i\n Preis: %f\n", pElement->Key, pElement->Marke, pElement->Jahrgang, pElement->Preis);
+}
+
+//Lï¿½scht ein Element
 void DeleteElement(Auto* pElement/*Pointer auf Element, Pointer auf "Start"*/) {
 
 
     //return "Start"
 }
 
-//Löscht die Liste
+//Lï¿½scht die Liste
 struAuto* DeleteList()
 {
     struAuto* pAuto = (struAuto*)malloc(sizeof(struAuto));

@@ -9,6 +9,7 @@
 #include "StructAuto.h"
 
 typedef struct Auto {
+    int Key;
     char Marke[40];
     int Jahrgang;
     double Preis;

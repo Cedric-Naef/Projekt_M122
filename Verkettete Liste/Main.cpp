@@ -14,52 +14,71 @@ int main()
 
     int UserInput;
 
+    int Exit = 0;
+
     pStart = CreateList(10);
-    PrintList(pStart);
+    GetElement(pStart, 2);
 
-    //Das Menü wird eingeblendet
-    printf("Was wollen Sie machen?\n"
-        "1 -> Liste erstellen\n"
-        "2 -> Liste loeschen\n"
-        "3 -> Element loeschen\n"
-        "4 -> Liste sortieren\n"
-        "5 -> Liste ausgeben\n"
-        "6 -> Programm beenden\n\n");
 
-    scanf_s("%i", &UserInput);
 
-    switch (UserInput)
-    {
-        case 1:
-            printf("Liste wird erstellt!\n");
-            break;
 
-        case 2:
-            printf("Liste wird gelöscht!\n");
-            break;
+    do{
+        //Das Menï¿½ wird eingeblendet
+        printf("Was wollen Sie machen?\n"
+            "1 -> Liste erstellen\n"
+            "2 -> Liste loeschen\n"
+            "3 -> Element loeschen\n"
+            "4 -> Liste sortieren\n"
+            "5 -> Liste ausgeben\n"
+            "6 -> Programm beenden\n\n");
 
-        case 3:
-            printf("Element geslöscht\n");
-            break;
+        scanf_s("%i", &UserInput);
 
-        case 4:
-            printf("Liste wird sortiert!\n");
-            break;
+        switch (UserInput)
+        {
+            case 1:
+                if (pStart == NULL)
+                {
+                    printf("Liste wird erstellt\n");
+                    pStart = CreateList(10);
+                }
+                else
+                    printf("Bitte lï¿½schen Sie Ihre Liste erst!\n");
 
-        case 5:
-            printf("Hier Ihre Liste\n");
-            break;
+                break;
 
-        case 6:
-            printf("Programm wird beendet\n");
-            break;
+            case 2:
+                printf("Element wird geloescht!\n");
+                pStart = NULL;
+                break;
 
-        default:
-            printf("Ungültige Eingabe");
-            break;
-    }
+            case 3:
+                printf("Element gesloescht\n");
+                break;
 
-    Randomize();
+            case 4:
+                printf("Liste wird sortiert!\n");
+                break;
+
+            case 5:
+                printf("Hier Ihre Liste");
+                PrintList(pStart);
+                break;
+
+            case 6:
+                printf("Programm wird beendet");
+                Exit = 1;
+                break;
+
+            default:
+                printf("Eingabe ungueltig");
+                break;
+        }
+    } while (Exit != 1);
+
+
+
+    //Randomize();
 
     //Programm beenden
     system("pause");

@@ -16,6 +16,8 @@ int main()
 
     int UserInput;
 
+    pStart = CreateList(10);
+    PrintList(pStart);
 
     //Das Menü wird eingeblendet
     printf("Was wollen Sie machen?\n"
@@ -27,9 +29,6 @@ int main()
         "6 -> Programm beenden\n\n");
 
     scanf_s("%i", &UserInput);
-
-
-    float blabla;
 
     switch (UserInput)
     {
@@ -59,7 +58,10 @@ int main()
 
         default:
             printf("Eingabe ungültig");
+            break;
     }
+
+    Randomize();
 
     //Programm beenden
     system("pause");

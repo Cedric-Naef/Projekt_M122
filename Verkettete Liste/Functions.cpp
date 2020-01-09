@@ -51,13 +51,17 @@ void random() {
     // time() Gibt die Zeit als Sekunden zurück, die seit Mitternacht, dem 1. Januar 1970 verstrichen sind 
     srand((unsigned)time(NULL));
     // 10 Zufallszahlen und Strings generieren, speichern und ausgeben
-    int Zahl = 0;
-    char Text[40];
+    char marke[40];
+    int jahrgang = 0;
+    double preis = 0;
+    
     for (int iZahl = 0; iZahl < 10; iZahl++) {
-        Zahl = rand() % 100;
-        Text[0] = 'A' + rand() % 26;
-        Text[1] = '\0';
-        printf("%i: %i %s\n", iZahl + 1, Zahl, Text);
+        marke[0] = 'A' + rand() % 26;
+        marke[1] = '\0';
+        jahrgang = rand() % 100;
+        preis = rand() % 100;
+        printf("%c, %i, %p\n", marke, jahrgang, preis);
+        return (marke, jahrgang, preis);
     }
     // Programmende
     printf("\n");

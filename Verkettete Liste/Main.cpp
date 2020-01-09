@@ -43,12 +43,12 @@ int main()
                     pStart = CreateList(10);
                 }
                 else
-                    printf("Bitte l�schen Sie Ihre Liste erst!\n");
+                    printf("Bitte loeschen Sie Ihre Liste erst!\n");
 
                 break;
 
             case 2:
-                printf("Element wird geloescht!\n");
+                printf("Liste wird geloescht!\n");
                 pStart = NULL;
                 break;
 

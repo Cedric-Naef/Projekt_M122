@@ -110,14 +110,14 @@ void PrintElement(struAuto* pElement)
     printf("\nKey: %d\n Marke: %s\n Jahrgang: %i\n Preis: %f\n", pElement->Key, pElement->Marke, pElement->Jahrgang, pElement->Preis);
 }
 
-//L�scht ein Element
+//Loescht ein Element
 void DeleteElement(Auto* pElement/*Pointer auf Element, Pointer auf "Start"*/) {
 
 
     //return "Start"
 }
 
-//L�scht die Liste
+//Loescht die Liste
 struAuto* DeleteList()
 {
     struAuto* pAuto = (struAuto*)malloc(sizeof(struAuto));

@@ -36,7 +36,7 @@ struAuto* CreateList(int Anzahl)
     struAuto* pStart = NULL;
     struAuto* pHead = NULL;
     int Index = 0;
-    // Elemente erzeugen, mit Daten abfüllen   
+    // Elemente erzeugen, mit Daten abfï¿½llen   
     for (int i = 0; i < Anzahl; i++) {
         struAuto* pAuto = (struAuto*)malloc(sizeof(struAuto));
         pAuto->Key = i;
@@ -60,19 +60,19 @@ struAuto* CreateList(int Anzahl)
 void Randomize() {
     // Zufallszahlengenerator initialiseren
     // Damit bei jedem Programmstart andere Zahlen erzeugt werden, wird time() verwendet
-    // time() Gibt die Zeit als Sekunden zurück, die seit Mitternacht, dem 1. Januar 1970 verstrichen sind 
+    // time() Gibt die Zeit als Sekunden zurï¿½ck, die seit Mitternacht, dem 1. Januar 1970 verstrichen sind 
     srand((unsigned)time(NULL));
  
     char marke[40];
     int jahrgang = 0;
     double preis = 0;
     
-    for (int iZahl = 0; iZahl < 10; iZahl++) {
+    // 4 Zufallszahlen und Strings generieren
+    for (int iZahl = 0; iZahl < 4; iZahl++) {
         marke[0] = 'A' + rand() % 26;
         marke[1] = '\0';
-        jahrgang = rand() % 100;
-        preis = rand() % 100;
-        printf("%c, %i, %p\n", marke, jahrgang, preis);
+        jahrgang = rand() % 80 + 1940;
+        preis = rand() % 900 + 1;
         //return (marke, jahrgang, preis);
     }
 }
@@ -110,10 +110,10 @@ struAuto* GetElement(struAuto* pStart, int Index)
 
 void PrintElement(struAuto* pElement)
 {
-    printf("\nKey: %d\n Marke: %s\n Jahrgang: %i\n Preis: %f\n", pElement->Key, pElement->Marke, pElement->Jahrgang, pElement->Preis);
+    printf("\nKey: %d\n Marke: %s\n Jahrgang: %i\n Preis: %f Tausend\n", pElement->Key, pElement->Marke, pElement->Jahrgang, pElement->Preis);
 }
 
-//Löscht ein Element
+//Lï¿½scht ein Element
 struAuto* DeleteElement(struAuto* pElement) {
 
     //Auto* tmp1 = pElement->pPrev->pNext;
@@ -128,7 +128,7 @@ struAuto* DeleteElement(struAuto* pElement) {
     return tmp;
 }
 
-//Löscht die Liste
+//Lï¿½scht die Liste
 void DeleteList(struAuto* pStart)
 {
     struAuto* pAto = pStart;

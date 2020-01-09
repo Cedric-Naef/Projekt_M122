@@ -8,8 +8,6 @@
 #include "StructAuto.h"
 
 
-
-
 int main()
 {
     struAuto* pStart = NULL;
@@ -25,7 +23,7 @@ int main()
 
 
     do{
-        //Das Menü wird eingeblendet
+        //Das Menï¿½ wird eingeblendet
         printf("Was wollen Sie machen?\n"
             "1 -> Liste erstellen\n"
             "2 -> Liste loeschen\n"
@@ -45,7 +43,7 @@ int main()
                     pStart = CreateList(10);
                 }
                 else
-                    printf("Bitte löschen Sie Ihre Liste erst!\n");
+                    printf("Bitte loeschen Sie Ihre Liste erst!\n");
 
                 break;
 

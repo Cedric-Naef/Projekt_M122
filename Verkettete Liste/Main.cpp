@@ -17,7 +17,7 @@ int main()
     int Exit = 0;
 
     pStart = CreateList(10);
-    GetElement(pStart, 2);
+    //GetElement(pStart, 2);
 
 
 

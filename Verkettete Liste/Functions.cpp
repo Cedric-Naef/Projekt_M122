@@ -9,7 +9,7 @@
 
 
 
-void bubblesort(int *array, int length)
+void Bubblesort(int *array, int length)
 {
   int i, j, tmp;
 
@@ -38,6 +38,7 @@ struAuto* CreateList(int Anzahl)
     for (int i = 0; i < Anzahl; i++) {
         struAuto* pAuto = (struAuto*)malloc(sizeof(struAuto));
         pAuto->Jahrgang = Anzahl - i;
+        pAuto->Preis = 10000;
         pAuto->pNext = NULL;
         if (i != 0) pAuto->pNext = pStart;
         pStart = pAuto;
@@ -45,7 +46,7 @@ struAuto* CreateList(int Anzahl)
     return pStart;
 }
 
-void random() {
+void Randomize() {
     // Zufallszahlengenerator initialiseren
     // Damit bei jedem Programmstart andere Zahlen erzeugt werden, wird time() verwendet
     // time() Gibt die Zeit als Sekunden zurück, die seit Mitternacht, dem 1. Januar 1970 verstrichen sind 
@@ -68,16 +69,16 @@ void random() {
     system("pause");
 }
 
-void PrintList(struAuto *pAuto)
+void PrintList(struAuto *pStart)
 {
-    //for (struAuto* pAto = pStart; pAto != NULL; pAto = pAto->pNext)
-    //{
-    //    printf("Marke: %c\n Jahrgang: %i\n Preis: %d\n", pAto->Jahrgang);
-    //}
+    for (struAuto* pAto = pStart; pAto != NULL; pAto = pAto->pNext)
+    {
+        printf("Marke: %s\n Jahrgang: %i\n Preis: %f\n", pAto->Marke, pAto->Jahrgang, pAto->Preis);
+    }
 }
 
 //Löscht ein Element
-void DeleteElement(/*Pointer auf Element, Pointer auf "Start"*/) {
+void DeleteElement(Auto * pElement/*Pointer auf Element, Pointer auf "Start"*/) {
 
 
     //return "Start"

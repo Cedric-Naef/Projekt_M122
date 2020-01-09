@@ -1,6 +1,7 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "time.h"
+#include "string.h"
 
 //Own header files
 #include "Main.h"
@@ -33,23 +34,28 @@ struAuto* CreateList(int Anzahl)
     printf("Geben Sie die Anzahl der Elemente ein, die Sie wollen\n");
     //scanf_s("%i", &Anzahl);
     struAuto* pStart = NULL;
-    struAuto* pStart1 = NULL;
+    struAuto* pHead = NULL;
     int Index = 0;
     // Elemente erzeugen, mit Daten abfüllen   
     for (int i = 0; i < Anzahl; i++) {
         struAuto* pAuto = (struAuto*)malloc(sizeof(struAuto));
-        pAuto->Key = Index;
+        pAuto->Key = i;
+        //pAuto->Marke = "asfsafsaf";
+        strcpy(pAuto->Marke, "BMW");
         pAuto->Jahrgang = 1996;
         pAuto->Preis = 10000;
         pAuto->pNext = NULL;
         if (i != 0)
-            pAuto->pNext = pStart;
+        {
+            pAuto->pNext = pHead;
+            pStart->pNext = pAuto;
+        }
         else
-            pStart1 = pAuto;
-        //pStart = pAuto;
+            pHead = pAuto;
+        pStart = pAuto;
         Index++;
     }
-    return pStart1;
+    return pHead;
 }
 
 void Randomize() {
@@ -70,17 +76,17 @@ void Randomize() {
         printf("%c, %i, %p\n", marke, jahrgang, preis);
         //return (marke, jahrgang, preis);
     }
-    // Programmende
-    printf("\n");
-    system("pause");
 }
 
 void PrintList(struAuto *pStart)
 {
-    for (struAuto* pAto = pStart; pAto != NULL; pAto = pAto->pNext)
+    struAuto* pAto = pStart;
+    while( pAto->pNext != pStart)
     {
-        PrintElement(pStart);
+        PrintElement(pAto);
+        pAto = pAto->pNext;
     }
+    PrintElement(pAto);
 }
 
 struAuto* GetElement(struAuto* pStart, int Index)
@@ -101,7 +107,7 @@ struAuto* GetElement(struAuto* pStart, int Index)
 
 void PrintElement(struAuto* pElement)
 {
-    printf("Key: %d\n Marke: %s\n Jahrgang: %i\n Preis: %f\n", pElement->Key, pElement->Marke, pElement->Jahrgang, pElement->Preis);
+    printf("\nKey: %d\n Marke: %s\n Jahrgang: %i\n Preis: %f\n", pElement->Key, pElement->Marke, pElement->Jahrgang, pElement->Preis);
 }
 
 //Löscht ein Element

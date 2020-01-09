@@ -29,7 +29,7 @@ int main()
     scanf_s("%i", &UserInput);
 
 
-    int blabla;
+    float blabla;
 
     switch (UserInput)
     {

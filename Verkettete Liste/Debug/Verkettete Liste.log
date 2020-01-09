@@ -1,5 +1,5 @@
 ﻿  Functions.cpp
-C:\Users\CR\Documents\GitHub\Projekt_M122\Verkettete Liste\Functions.cpp(44,1): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
-C:\Users\CR\Documents\GitHub\Projekt_M122\Verkettete Liste\Functions.cpp(76,16): warning C4477: 'printf' : format string '%c' requires an argument of type 'int', but variadic argument 1 has type 'char *'
-C:\Users\CR\Documents\GitHub\Projekt_M122\Verkettete Liste\Functions.cpp(76,16): warning C4477: 'printf' : format string '%p' requires an argument of type 'void *', but variadic argument 3 has type 'double'
+C:\Users\Cedric\Documents\GitHub\Projekt_M122\Verkettete Liste\Functions.cpp(44,1): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : Siehe Deklaration von "strcpy"
+  StructAuto.cpp
+  Code wird generiert...

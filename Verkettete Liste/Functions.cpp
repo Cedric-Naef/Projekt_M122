@@ -72,8 +72,8 @@ void Randomize() {
     for (int iZahl = 0; iZahl < 4; iZahl++) {
         marke[0] = 'A' + rand() % 26;
         marke[1] = '\0';
-        jahrgang = rand() % 100;
-        preis = rand() % 100;
+        jahrgang = rand() % 80 + 1940;
+        preis = rand() % 900 + 1;
         //return (marke, jahrgang, preis);
     }
 }
@@ -107,7 +107,7 @@ struAuto* GetElement(struAuto* pStart, int Index)
 
 void PrintElement(struAuto* pElement)
 {
-    printf("\nKey: %d\n Marke: %s\n Jahrgang: %i\n Preis: %f\n", pElement->Key, pElement->Marke, pElement->Jahrgang, pElement->Preis);
+    printf("\nKey: %d\n Marke: %s\n Jahrgang: %i\n Preis: %f Tausend\n", pElement->Key, pElement->Marke, pElement->Jahrgang, pElement->Preis);
 }
 
 //Loescht ein Element

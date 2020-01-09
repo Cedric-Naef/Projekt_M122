@@ -29,6 +29,8 @@ int main()
     scanf_s("%i", &UserInput);
 
 
+    int blabla;
+
     switch (UserInput)
     {
         case 1:

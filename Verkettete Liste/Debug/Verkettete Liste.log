@@ -1,4 +1,5 @@
-﻿  Main.cpp
-  StructAuto.cpp
+﻿  Functions.cpp
+  Main.cpp
+C:\Users\CR\Documents\GitHub\Projekt_M122\Verkettete Liste\Main.cpp(32,9): warning C4101: 'blabla': unreferenced local variable
   Generating Code...
   Verkettete Liste.vcxproj -> C:\Users\CR\Documents\GitHub\Projekt_M122\Debug\Verkettete Liste.exe

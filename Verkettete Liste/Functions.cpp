@@ -27,11 +27,11 @@ void bubblesort(int *array, int length)
   }
 }
 
-void CreateList(int& Anzahl)
+struAuto* CreateList(int Anzahl)
 {
     //Anzahl der Elemente eingeben
     printf("Geben Sie die Anzahl der Elemente ein, die Sie wollen\n");
-    scanf_s("%i", &Anzahl);
+    //scanf_s("%i", &Anzahl);
     struAuto* pStart = NULL;
 
     // Elemente erzeugen, mit Daten abfüllen   
@@ -42,6 +42,7 @@ void CreateList(int& Anzahl)
         if (i != 0) pAuto->pNext = pStart;
         pStart = pAuto;
     }
+    return pStart;
 }
 
 void random() {

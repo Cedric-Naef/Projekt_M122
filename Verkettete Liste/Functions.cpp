@@ -40,20 +40,19 @@ struAuto* CreateList(int Anzahl)
     for (int i = 0; i < Anzahl; i++) {
         struAuto* pAuto = (struAuto*)malloc(sizeof(struAuto));
         pAuto->Key = i;
-        //pAuto->Marke = "asfsafsaf";
-        strcpy(pAuto->Marke, "BMW");
+        strcpy_s(pAuto->Marke, "BMW");
         pAuto->Jahrgang = 1996;
         pAuto->Preis = 10000;
         pAuto->pNext = NULL;
         if (i != 0)
         {
             pAuto->pNext = pHead;
+            pAuto->pPrev = pHead->pPrev;
             pStart->pNext = pAuto;
         }
         else
             pHead = pAuto;
         pStart = pAuto;
-        Index++;
     }
     return pHead;
 }
@@ -93,16 +92,20 @@ struAuto* GetElement(struAuto* pStart, int Index)
 {
     int CurrentIndex = 0;
 
-    for (struAuto* pAto = pStart; pAto != NULL; pAto = pAto->pNext)
+
+    struAuto* pAto = pStart;
+    while (pAto->pNext != pStart)
     {
         if (CurrentIndex == Index)
         {
-            PrintElement(pStart);
-            break;
+            PrintElement(pAto);
             return pAto;
         }
+        pAto = pAto->pNext;
         CurrentIndex++;
     }
+
+    //PrintElement(pAto);
 }
 
 void PrintElement(struAuto* pElement)
@@ -111,16 +114,39 @@ void PrintElement(struAuto* pElement)
 }
 
 //Löscht ein Element
-void DeleteElement(Auto* pElement/*Pointer auf Element, Pointer auf "Start"*/) {
+struAuto* DeleteElement(struAuto* pElement) {
+
+    //Auto* tmp1 = pElement->pPrev->pNext;
+    //Auto* tmp2 = pElement->pNext->pPrev;
+
+    pElement->pPrev->pNext = pElement->pNext;
+    pElement->pNext->pPrev = pElement->pPrev;
 
 
-    //return "Start"
+    struAuto* tmp = pElement->pNext;
+    free(pElement);
+    return tmp;
 }
 
 //Löscht die Liste
-void DeleteList() 
+void DeleteList(struAuto* pStart)
 {
+    struAuto* pAto = pStart;
+    while (pAto->pNext != pStart)
+    {
+        pAto = DeleteElement(pAto);
+    }
+    free(pAto);
+}
 
 
-    //free(list);
+char getRandUpperCaseChar() {
+    /* Return a random of the 26 chars after the value of 65 in ASCII. */
+    return (char)(rand() % 26 + 65);
+}
+
+
+
+int getRandomNumber() {
+    return rand() % 100;
 }

@@ -51,11 +51,14 @@ int main()
 
             case 2:
                 printf("Element wird geloescht!\n");
+                DeleteList(pStart);
                 pStart = NULL;
                 break;
 
             case 3:
                 printf("Element gesloescht\n");
+                //struAuto* tmp2 = GetElement(pStart, 2);
+                //DeleteElement(tmp2);
                 break;
 
             case 4:

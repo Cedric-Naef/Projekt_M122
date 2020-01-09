@@ -20,3 +20,11 @@ void PrintList(struAuto* pStart);
 struAuto* GetElement(struAuto* pStart, int Index);
 
 void PrintElement(struAuto* pElement);
+
+struAuto* DeleteElement(struAuto* pElement);
+
+void DeleteList(struAuto* pStart);
+
+char getRandUpperCaseChar();
+
+int getRandomNumber();

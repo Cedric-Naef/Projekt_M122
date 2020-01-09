@@ -57,7 +57,7 @@ void Randomize() {
     // Damit bei jedem Programmstart andere Zahlen erzeugt werden, wird time() verwendet
     // time() Gibt die Zeit als Sekunden zurück, die seit Mitternacht, dem 1. Januar 1970 verstrichen sind 
     srand((unsigned)time(NULL));
-    // 10 Zufallszahlen und Strings generieren, speichern und ausgeben
+ 
     char marke[40];
     int jahrgang = 0;
     double preis = 0;
@@ -105,8 +105,16 @@ void PrintElement(struAuto* pElement)
 }
 
 //Löscht ein Element
-void DeleteElement(Auto * pElement/*Pointer auf Element, Pointer auf "Start"*/) {
+void DeleteElement(Auto* pElement/*Pointer auf Element, Pointer auf "Start"*/) {
 
 
     //return "Start"
+}
+
+//Löscht die Liste
+void DeleteList() 
+{
+
+
+    //free(list);
 }

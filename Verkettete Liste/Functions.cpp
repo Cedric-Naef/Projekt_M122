@@ -33,7 +33,7 @@ struAuto* CreateList(int Anzahl)
     //Anzahl der Elemente eingeben
     printf("Geben Sie die Anzahl der Elemente ein, die Sie wollen\n");
     //scanf_s("%i", &Anzahl);
-    struAuto* pStart = NULL;
+    struAuto* pLast = NULL;
     struAuto* pHead = NULL;
     int Index = 0;
     // Elemente erzeugen, mit Daten abf�llen   
@@ -43,16 +43,20 @@ struAuto* CreateList(int Anzahl)
         strcpy_s(pAuto->Marke, "BMW");
         pAuto->Jahrgang = 1996;
         pAuto->Preis = 10000;
-        pAuto->pNext = NULL;
         if (i != 0)
         {
+            pLast = pHead->pPrev;
             pAuto->pNext = pHead;
-            pAuto->pPrev = pHead->pPrev;
-            pStart->pNext = pAuto;
+            pAuto->pPrev = pAuto;
+            pHead->pPrev = pAuto;
+            pLast->pNext = pAuto;
         }
-        else
+        else {
             pHead = pAuto;
-        pStart = pAuto;
+            pHead->pNext = pHead;
+            pHead->pPrev = pHead;
+        }
+            
     }
     return pHead;
 }
@@ -91,7 +95,7 @@ void PrintList(struAuto *pStart)
 struAuto* GetElement(struAuto* pStart, int Index)
 {
     int CurrentIndex = 0;
-
+    struAuto* Rtrn = NULL;
 
     struAuto* pAto = pStart;
     while (pAto->pNext != pStart)
@@ -99,12 +103,12 @@ struAuto* GetElement(struAuto* pStart, int Index)
         if (CurrentIndex == Index)
         {
             PrintElement(pAto);
-            return pAto;
+            Rtrn = pAto;
         }
         pAto = pAto->pNext;
         CurrentIndex++;
     }
-
+    return Rtrn;
     //PrintElement(pAto);
 }
 
@@ -119,9 +123,9 @@ struAuto* DeleteElement(struAuto* pElement) {
     //Auto* tmp1 = pElement->pPrev->pNext;
     //Auto* tmp2 = pElement->pNext->pPrev;
 
+    pElement = pElement->pNext->pNext;
     pElement->pPrev->pNext = pElement->pNext;
     pElement->pNext->pPrev = pElement->pPrev;
-
 
     struAuto* tmp = pElement->pNext;
     free(pElement);

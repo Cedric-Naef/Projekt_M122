@@ -16,6 +16,8 @@ int main()
 
     int Exit = 0;
 
+    struAuto* tmp2 = NULL;
+
     pStart = CreateList(10);
     //GetElement(pStart, 2);
 
@@ -55,8 +57,8 @@ int main()
 
             case 3:
                 printf("Element gesloescht\n");
-                //struAuto* tmp2 = GetElement(pStart, 2);
-                //DeleteElement(tmp2);
+                tmp2 = GetElement(pStart, 2);
+                DeleteElement(pStart);
                 break;
 
             case 4:

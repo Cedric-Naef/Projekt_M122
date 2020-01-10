@@ -223,7 +223,7 @@ void Sort()
             break;
 
         default:
-            printf("Eingabe ungueltig");
+            printf("Eingabe ungueltig\n\n");
             break;
         }
     } while (srt != 1);

@@ -67,17 +67,17 @@ int main()
                 break;
 
             case 5:
-                printf("Hier Ihre Liste");
+                printf("Hier Ihre Liste\n");
                 PrintList(pStart);
                 break;
 
             case 6:
-                printf("Programm wird beendet");
+                printf("Programm wird beendet\n");
                 Exit = 1;
                 break;
 
             default:
-                printf("Eingabe ungueltig");
+                printf("Eingabe ungueltig\n");
                 break;
         }
     } while (Exit != 1);

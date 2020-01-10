@@ -1,5 +1,5 @@
 ﻿  Functions.cpp
-C:\Users\vmadmin\Documents\GitHub\Projekt_M122\Verkettete Liste\Functions.cpp(182,16): warning C4552: "+": Ergebnis des Ausdrucks nicht verwendet.
   StructAuto.cpp
   Code wird generiert...
-C:\Users\vmadmin\Documents\GitHub\Projekt_M122\Verkettete Liste\Functions.cpp(183): error C4716: "getRandomNumber": Muss einen Wert zurückgeben
+  LINK : C:\Users\Cedric\Documents\GitHub\Projekt_M122\Debug\Verkettete Liste.exe wurde nicht gefunden oder beim letzten inkrementellen Linkvorgang nicht erstellt; vollständiger Link wird durchgeführt.
+  Verkettete Liste.vcxproj -> C:\Users\Cedric\Documents\GitHub\Projekt_M122\Debug\Verkettete Liste.exe

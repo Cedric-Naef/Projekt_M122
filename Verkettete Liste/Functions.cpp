@@ -28,6 +28,24 @@ void Bubblesort(int *array, int length)
   }
 }
 
+void BubblesortBack(int* array, int length)
+{
+    int i, j, tmp;
+
+    for (i = 1; i < length; i++)
+    {
+        for (j = 0; j < length - i; j++)
+        {
+            if (array[j] > array[j - 1])
+            {
+                tmp = array[j];
+                array[j] = array[j - 1];
+                array[j - 1] = tmp;
+            }
+        }
+    }
+}
+
 
 //Die Liste wird erstellt
 //Autor: Naef Cedric, Rey Colin
@@ -62,27 +80,6 @@ struAuto* CreateList(int Anzahl)
             
     }
     return pHead;
-}
-
-
-void Randomize() {
-    // Zufallszahlengenerator initialiseren
-    // Damit bei jedem Programmstart andere Zahlen erzeugt werden, wird time() verwendet
-    // time() Gibt die Zeit als Sekunden zur�ck, die seit Mitternacht, dem 1. Januar 1970 verstrichen sind 
-    srand((unsigned)time(NULL));
- 
-    char marke[40];
-    int jahrgang = 0;
-    double preis = 0;
-    
-    // 4 Zufallszahlen und Strings generieren
-    for (int iZahl = 0; iZahl < 4; iZahl++) {
-        marke[0] = 'A' + rand() % 26;
-        marke[1] = '\0';
-        jahrgang = rand() % 80 + 1940;
-        preis = rand() % 900 + 1;
-        //return (marke, jahrgang, preis);
-    }
 }
 
 
@@ -179,16 +176,17 @@ int getRandomDate() {
 //Eine zufaellige Zahl wird erstellt
 //Autor: Rey Colin, Naef Cedric
 int getRandomNumber() {
-    rand() % 900 + 1;
+    return rand() % 900 + 1;
 }
 
 
 //Die Liste wird sortiert
 //Autor: Naef Cedric
-void Sort()
+void Sort(struAuto* pStart)
 {
     int UserInput;
     int srt = 0;
+    struAuto* pAto = pStart;
     
     do {
         //Menü zur Auswahl der sortierung
@@ -204,7 +202,7 @@ void Sort()
         switch (UserInput)
         {
         case 1:
-            
+
             printf("Die liste wurde der Marke nach aufwärts sortiert.\n");
             srt = 1;
             break;

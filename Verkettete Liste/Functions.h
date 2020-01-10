@@ -11,9 +11,9 @@
 
 void Bubblesort(int *array, int length);
 
-struAuto* CreateList(int Anzahl);
+void BubblesortBack(int* array, int length);
 
-void Randomize();
+struAuto* CreateList(int Anzahl);
 
 void PrintList(struAuto* pStart);
 

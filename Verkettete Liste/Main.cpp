@@ -65,6 +65,7 @@ int main()
 
             case 4:
                 printf("Liste wird sortiert!\n");
+                
                 break;
 
             case 5:

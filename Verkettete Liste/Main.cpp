@@ -82,9 +82,6 @@ int main()
     } while (Exit != 1);
 
 
-
-    //Randomize();
-
     //Programm beenden
     system("pause");
     return 0;

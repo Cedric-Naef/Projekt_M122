@@ -40,9 +40,9 @@ struAuto* CreateList(int Anzahl)
     for (int i = 0; i < Anzahl; i++) {
         struAuto* pAuto = (struAuto*)malloc(sizeof(struAuto));
         pAuto->Key = i;
-        strcpy_s(pAuto->Marke, "BMW");
-        pAuto->Jahrgang = 1996;
-        pAuto->Preis = 10000;
+        pAuto->Marke, getRandUpperCaseChar();
+        pAuto->Jahrgang = getRandomNumber();
+        pAuto->Preis = getRandomNumber();
         if (i != 0)
         {
             pLast = pHead->pPrev;

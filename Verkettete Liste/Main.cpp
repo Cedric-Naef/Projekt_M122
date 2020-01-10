@@ -22,7 +22,7 @@ int main()
     //GetElement(pStart, 2);
 
 
-    do{
+    do {
         //Das Menue wird eingeblendet
         printf("Was wollen Sie machen?\n"
             "1 -> Liste erstellen\n"

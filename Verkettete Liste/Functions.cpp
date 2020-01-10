@@ -181,7 +181,7 @@ void Sort()
             "Nach Jahrgang aufwärts sortieren -> 3\n"
             "Nach Jahrgang abwärts sortieren --> 4\n"
             "Nach Preis aufwärts sortieren ----> 5\n"
-            "Nach Preis abwärts sortieren -----> 6\n");
+            "Nach Preis abwärts sortieren -----> 6\n\n");
         scanf_s("%i", &UserInput);
 
         switch (UserInput)

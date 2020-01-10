@@ -9,6 +9,56 @@
 #include "StructAuto.h"
 
 
+void sortList(struAuto* pStart) {
+    //struAuto* pAutoA = pListHead;
+    //struAuto* pAutoB = pListHead->pNext;
+    //int swaps = 1;
+    //while(swaps){
+    //    swaps = 0;
+    //    pAutoA = pAutoB;
+    //    pAutoB = pAutoB->pNext;
+    //    while (pAutoA->pNext != pListHead) {
+    //        // bedingung
+    //        if (pAutoA->Jahrgang > pAutoB->Jahrgang) {
+    //            printf("swap");
+    //            if (pAutoA == pListHead) {
+    //                pListHead = pAutoB;
+    //            }
+    //            SwapElement(pAutoA, pAutoB);
+    //            swaps += 1;
+    //        }
+    //        pAutoA = pAutoB;
+    //        pAutoB = pAutoB->pNext;
+    //    }
+    //}
+    struAuto* help = NULL;
+    struAuto* store = pStart;
+    int swap_data;
+    while (store->pNext != pStart && pStart != NULL) {
+        help = store;
+        while (help->pNext != pStart) {
+            if (help->Jahrgang < help->pNext->Jahrgang) {
+                SwapElement(help, store);
+            }
+            help = help->pNext;
+        }
+        store = store->pNext;
+    }
+}
+
+void SwapElement(struAuto* pAutoA, struAuto* pAutoB)
+{
+    pAutoA = pAutoB;
+    pAutoB = pAutoB->pNext;
+    struAuto* pTemp = pAutoA->pPrev;
+    pAutoA->pNext = pAutoB->pNext;
+    pAutoA->pPrev = pAutoB;
+    pAutoA->pNext->pPrev = pAutoA;
+
+    pAutoB->pNext = pAutoA;
+    pAutoB->pPrev = pTemp;
+    pAutoB->pPrev->pNext = pAutoB;
+}
 
 void Bubblesort(int *array, int length)
 {
@@ -40,14 +90,20 @@ struAuto* CreateList(int Anzahl)
     for (int i = 0; i < Anzahl; i++) {
         struAuto* pAuto = (struAuto*)malloc(sizeof(struAuto));
         pAuto->Key = i;
-        strcpy_s(pAuto->Marke, "BMW");
-        pAuto->Jahrgang = 1996;
-        pAuto->Preis = 10000;
+
+        
+        char Marke[40];
+        Marke[0] = getRandUpperCaseChar();
+        Marke[1] = '\0';
+        strcpy_s(pAuto->Marke, Marke);
+        pAuto->Jahrgang = 1900;
+        pAuto->Preis = getRandomNumber();
         if (i != 0)
         {
             pLast = pHead->pPrev;
+
             pAuto->pNext = pHead;
-            pAuto->pPrev = pAuto;
+            pAuto->pPrev = pLast;
             pHead->pPrev = pAuto;
             pLast->pNext = pAuto;
         }
@@ -81,10 +137,44 @@ void Randomize() {
     }
 }
 
-void PrintList(struAuto *pStart)
+void DeleteElementsByProperty(struAuto *pListHead, int Property)
+{
+    struAuto* CurrentElement = pListHead;
+    while( CurrentElement->pNext != pListHead && pListHead != NULL)
+    {
+        if (CurrentElement == pListHead)
+        {
+
+        }
+
+        if (Property == CurrentElement->Jahrgang)
+        {
+            printf("The following elent in list is getting deleted: \n");
+            PrintElement(CurrentElement);
+            pListHead = CurrentElement->pNext;
+            CurrentElement = DeleteElement(CurrentElement);   
+        }
+        else
+        {
+            CurrentElement = CurrentElement->pNext;
+        }
+
+
+    }
+
+    /* struAuto* CurrentElement = pListHead;
+    while (CurrentElement->pNext != pListHead)
+    {
+        CurrentElement = DeleteElement(CurrentElement);
+    }
+    free(CurrentElement);
+    PrintElement(CurrentElement);*/
+}
+
+void PrintList(struAuto* pStart)
 {
     struAuto* pAto = pStart;
-    while( pAto->pNext != pStart)
+    while (pAto->pNext != pStart)
     {
         PrintElement(pAto);
         pAto = pAto->pNext;
@@ -92,13 +182,13 @@ void PrintList(struAuto *pStart)
     PrintElement(pAto);
 }
 
-struAuto* GetElement(struAuto* pStart, int Index)
+struAuto* GetElement(struAuto* pListHead, int Index)
 {
     int CurrentIndex = 0;
     struAuto* Rtrn = NULL;
 
-    struAuto* pAto = pStart;
-    while (pAto->pNext != pStart)
+    struAuto* pAto = pListHead;
+    while (pAto->pNext != pListHead)
     {
         if (CurrentIndex == Index)
         {
@@ -109,7 +199,7 @@ struAuto* GetElement(struAuto* pStart, int Index)
         CurrentIndex++;
     }
     return Rtrn;
-    //PrintElement(pAto);
+    //PrintElement(CurrentElement);
 }
 
 void PrintElement(struAuto* pElement)
@@ -123,10 +213,13 @@ struAuto* DeleteElement(struAuto* pElement) {
     //Auto* tmp1 = pElement->pPrev->pNext;
     //Auto* tmp2 = pElement->pNext->pPrev;
 
-    pElement = pElement->pNext->pNext;
+    if (pElement->pNext == pElement) {
+        free(pElement);
+        return NULL;
+    }
     pElement->pPrev->pNext = pElement->pNext;
     pElement->pNext->pPrev = pElement->pPrev;
-
+    
     struAuto* tmp = pElement->pNext;
     free(pElement);
     return tmp;
@@ -136,7 +229,7 @@ struAuto* DeleteElement(struAuto* pElement) {
 void DeleteList(struAuto* pStart)
 {
     struAuto* pAto = pStart;
-    while (pAto->pNext != pStart)
+    while (pAto->pNext != pStart && pStart !=NULL)
     {
         pAto = DeleteElement(pAto);
     }
@@ -147,6 +240,19 @@ void DeleteList(struAuto* pStart)
 char getRandUpperCaseChar() {
     /* Return a random of the 26 chars after the value of 65 in ASCII. */
     return (char)(rand() % 26 + 65);
+}
+
+char GetRandomString(int Length)
+{
+    //char [] =
+    //char Random[Length];
+
+    for (int i = 0; i < Length; i++)
+    {
+
+    }
+    
+    return ('a');
 }
 
 

@@ -1,1 +1,3 @@
-﻿  Verkettete Liste.vcxproj -> C:\Users\CR\Documents\GitHub\Projekt_M122\Debug\Verkettete Liste.exe
+﻿  Functions.cpp
+C:\Users\CR\Documents\GitHub\Projekt_M122\Verkettete Liste\Functions.cpp(36,9): warning C4101: 'swap_data': unreferenced local variable
+  Verkettete Liste.vcxproj -> C:\Users\CR\Documents\GitHub\Projekt_M122\Debug\Verkettete Liste.exe

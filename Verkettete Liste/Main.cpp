@@ -10,7 +10,7 @@
 
 int main()
 {
-    struAuto* pStart = NULL;
+    struAuto* pListHead = NULL;
 
     int UserInput;
 
@@ -18,8 +18,8 @@ int main()
 
     struAuto* tmp2 = NULL;
 
-    pStart = CreateList(10);
-    //GetElement(pStart, 2);
+    pListHead = CreateList(10);
+    //GetElement(pListHead, 2);
 
 
 
@@ -39,10 +39,10 @@ int main()
         switch (UserInput)
         {
             case 1:
-                if (pStart == NULL)
+                if (pListHead == NULL)
                 {
                     printf("Liste wird erstellt\n");
-                    pStart = CreateList(10);
+                    pListHead = CreateList(10);
                 }
                 else
                     printf("Bitte loeschen Sie Ihre Liste erst!\n");
@@ -51,28 +51,34 @@ int main()
 
             case 2:
                 printf("Element wird geloescht!\n");
-                DeleteList(pStart);
-                pStart = NULL;
+                DeleteList(pListHead);
+                pListHead = NULL;
                 break;
 
             case 3:
                 printf("Element gesloescht\n");
-                tmp2 = GetElement(pStart, 2);
-                DeleteElement(pStart);
+                tmp2 = GetElement(pListHead, 2);
+                DeleteElement(tmp2);
                 break;
 
             case 4:
                 printf("Liste wird sortiert!\n");
+                sortList(pListHead);
                 break;
 
             case 5:
                 printf("Hier Ihre Liste");
-                PrintList(pStart);
+                PrintList(pListHead);
                 break;
 
             case 6:
                 printf("Programm wird beendet");
                 Exit = 1;
+                break;
+
+            case 7:
+                scanf_s("%i", &UserInput);
+                DeleteElementsByProperty(pListHead, UserInput);
                 break;
 
             default:

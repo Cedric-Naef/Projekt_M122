@@ -156,7 +156,7 @@ int getRandomNumber() {
 }
 
 
-void Sort()
+void Sort(struAuto* pStart)
 {
     int UserInput;
     int srt = 0;
@@ -175,7 +175,7 @@ void Sort()
         switch (UserInput)
         {
         case 1:
-
+            
             printf("Die liste wurde der Marke nach aufwärts sortiert.\n");
             srt = 1;
             break;

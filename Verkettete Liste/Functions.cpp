@@ -226,7 +226,6 @@ void Sort(struAuto* pStart)
     int srt = 0;
     int jr = pAto->Jahrgang;
     int prs = pAto->Preis;
-    
 
     while (pAto->pNext != pStart)
     {
@@ -272,7 +271,7 @@ void Sort(struAuto* pStart)
             break;
 
         case 5:
-            Bubblesort(prs, anz);
+            Bubblesort(pAto->Preis, anz);
             printf("Die liste wurde dem Preis nach aufwaerts sortiert.\n\n");
             srt = 1;
             break;

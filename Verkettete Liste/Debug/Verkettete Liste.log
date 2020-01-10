@@ -1,4 +1,17 @@
-﻿  Functions.cpp
+﻿  Main.cpp
+  Functions.cpp
 C:\Users\Cedric\Documents\GitHub\Projekt_M122\Verkettete Liste\Functions.cpp(159,12): warning C4477: "printf": Die Formatzeichenfolge "%f" erfordert ein Argument vom Typ "double", das variadic-Argument "4" weist aber den Typ "int" auf.
-C:\Users\Cedric\Documents\GitHub\Projekt_M122\Verkettete Liste\Functions.cpp(202): warning C4715: "getRandUpperCaseChar": Nicht alle Codepfade geben einen Wert zurück.
-C:\Users\Cedric\Documents\GitHub\Projekt_M122\Verkettete Liste\Functions.cpp(263): error C4700: Die nicht initialisierte lokale Variable "jr" wurde verwendet.
+C:\Users\Cedric\Documents\GitHub\Projekt_M122\Verkettete Liste\Functions.cpp(262,43): error C2664: "void Bubblesort(int *,int)" : Konvertierung von Argument 1 von "int" in "int *" nicht möglich
+C:\Users\Cedric\Documents\GitHub\Projekt_M122\Verkettete Liste\Functions.cpp(262,28): message : Die Konvertierung eines ganzzahligen Typs in einen Zeigertyp erfordert ein reinterpret_cast-Operator oder eine Typumwandlung im C- oder Funktionsformat
+C:\Users\Cedric\Documents\GitHub\Projekt_M122\Verkettete Liste\Functions.cpp(13,6): message : Siehe Deklaration von "Bubblesort"
+C:\Users\Cedric\Documents\GitHub\Projekt_M122\Verkettete Liste\Functions.cpp(268,35): error C2664: "void BubblesortBack(int *,int)" : Konvertierung von Argument 1 von "int" in "int *" nicht möglich
+C:\Users\Cedric\Documents\GitHub\Projekt_M122\Verkettete Liste\Functions.cpp(268,28): message : Die Konvertierung eines ganzzahligen Typs in einen Zeigertyp erfordert ein reinterpret_cast-Operator oder eine Typumwandlung im C- oder Funktionsformat
+C:\Users\Cedric\Documents\GitHub\Projekt_M122\Verkettete Liste\Functions.cpp(49,6): message : Siehe Deklaration von "BubblesortBack"
+C:\Users\Cedric\Documents\GitHub\Projekt_M122\Verkettete Liste\Functions.cpp(274,40): error C2664: "void Bubblesort(int *,int)" : Konvertierung von Argument 1 von "int" in "int *" nicht möglich
+C:\Users\Cedric\Documents\GitHub\Projekt_M122\Verkettete Liste\Functions.cpp(274,28): message : Die Konvertierung eines ganzzahligen Typs in einen Zeigertyp erfordert ein reinterpret_cast-Operator oder eine Typumwandlung im C- oder Funktionsformat
+C:\Users\Cedric\Documents\GitHub\Projekt_M122\Verkettete Liste\Functions.cpp(13,6): message : Siehe Deklaration von "Bubblesort"
+C:\Users\Cedric\Documents\GitHub\Projekt_M122\Verkettete Liste\Functions.cpp(280,36): error C2664: "void BubblesortBack(int *,int)" : Konvertierung von Argument 1 von "int" in "int *" nicht möglich
+C:\Users\Cedric\Documents\GitHub\Projekt_M122\Verkettete Liste\Functions.cpp(280,28): message : Die Konvertierung eines ganzzahligen Typs in einen Zeigertyp erfordert ein reinterpret_cast-Operator oder eine Typumwandlung im C- oder Funktionsformat
+C:\Users\Cedric\Documents\GitHub\Projekt_M122\Verkettete Liste\Functions.cpp(49,6): message : Siehe Deklaration von "BubblesortBack"
+  StructAuto.cpp
+  Code wird generiert...

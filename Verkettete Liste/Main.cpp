@@ -50,13 +50,13 @@ int main()
                 break;
 
             case 2:
-                printf("Element wird geloescht!\n");
+                printf("Liste wird geloescht!\n");
                 DeleteList(pStart);
                 pStart = NULL;
                 break;
 
             case 3:
-                printf("Element gesloescht\n");
+                printf("Element wird gesloescht\n");
                 tmp2 = GetElement(pStart, 2);
                 DeleteElement(pStart);
                 break;

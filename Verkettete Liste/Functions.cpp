@@ -154,3 +154,65 @@ char getRandUpperCaseChar() {
 int getRandomNumber() {
     return rand() % 100;
 }
+
+
+void Sort()
+{
+    int UserInput;
+    int srt = 0;
+    
+    do {
+        //Menü zur Auswahl der sortierung
+        printf("Nach was wollen Sie Sortieren?\n"
+            "Nach Marke aufwärts sortieren ----> 1\n"
+            "Nach Marke abwärts sortieren -----> 2\n"
+            "Nach Jahrgang aufwärts sortieren -> 3\n"
+            "Nach Jahrgang abwärts sortieren --> 4\n"
+            "Nach Preis aufwärts sortieren ----> 5\n"
+            "Nach Preis abwärts sortieren -----> 6\n");
+        scanf_s("%i", &UserInput);
+
+        switch (UserInput)
+        {
+        case 1:
+
+            printf("Die liste wurde der Marke nach aufwärts sortiert.\n");
+            srt = 1;
+            break;
+
+        case 2:
+
+            printf("Die liste wurde der Marke nach abwärts sortiert.\n");
+            srt = 1;
+            break;
+
+        case 3:
+
+            printf("Die liste wurde dem Jahrgang nach aufwärts sortiert.\n");
+            srt = 1;
+            break;
+
+        case 4:
+
+            printf("Die liste wurde dem Jahrgang nach abwärts sortiert.\n");
+            srt = 1;
+            break;
+
+        case 5:
+
+            printf("Die liste wurde dem Preis nach aufwärts sortiert.\n");
+            srt = 1;
+            break;
+
+        case 6:
+
+            printf("Die liste wurde dem Preis nach abwärts sortiert.\n");
+            srt = 1;
+            break;
+
+        default:
+            printf("Eingabe ungueltig");
+            break;
+        }
+    } while (srt != 1);
+}

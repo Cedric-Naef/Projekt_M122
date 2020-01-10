@@ -156,7 +156,7 @@ int getRandomNumber() {
 }
 
 
-void Sort(struAuto* pStart)
+void Sort()
 {
     int UserInput;
     int srt = 0;

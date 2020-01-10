@@ -28,6 +28,7 @@ void Bubblesort(int *array, int length)
   }
 }
 
+
 //Die Liste wird erstellt
 //Autor: Naef Cedric, Rey Colin
 struAuto* CreateList(int Anzahl)
@@ -43,7 +44,7 @@ struAuto* CreateList(int Anzahl)
         struAuto* pAuto = (struAuto*)malloc(sizeof(struAuto));
         pAuto->Key = i;
         pAuto->Marke, getRandUpperCaseChar();
-        pAuto->Jahrgang = getRandomNumber();
+        pAuto->Jahrgang = getRandomDate();
         pAuto->Preis = getRandomNumber();
         if (i != 0)
         {
@@ -62,6 +63,7 @@ struAuto* CreateList(int Anzahl)
     }
     return pHead;
 }
+
 
 void Randomize() {
     // Zufallszahlengenerator initialiseren
@@ -83,6 +85,7 @@ void Randomize() {
     }
 }
 
+
 //Die Liste wird ausgegeben
 //Autor: Rey Colin
 void PrintList(struAuto *pStart)
@@ -95,6 +98,7 @@ void PrintList(struAuto *pStart)
     }
     PrintElement(pAto);
 }
+
 
 //Ein Element wird gesucht
 //Autor: Rey Colin
@@ -118,12 +122,14 @@ struAuto* GetElement(struAuto* pStart, int Index)
     //PrintElement(pAto);
 }
 
+
 //Das Element wird ausgegeben
 //Autor: Rey Colin
 void PrintElement(struAuto* pElement)
 {
-    printf("\nKey: %d\n Marke: %s\n Jahrgang: %i\n Preis: %f Tausend\n", pElement->Key, pElement->Marke, pElement->Jahrgang, pElement->Preis);
+    printf("\nKey: %d    Marke: %s    Jahrgang: %i    Preis: %f Tausend\n", pElement->Key, pElement->Marke, pElement->Jahrgang, pElement->Preis);
 }
+
 
 //Loescht ein Element
 //Autor: Rey Colin
@@ -141,6 +147,7 @@ struAuto* DeleteElement(struAuto* pElement) {
     return tmp;
 }
 
+
 //Loescht die Liste
 //Autor: Rey Colin
 void DeleteList(struAuto* pStart)
@@ -153,18 +160,28 @@ void DeleteList(struAuto* pStart)
     free(pAto);
 }
 
+
 //Ein zufaelliger Buchstabe wird erstellt
 //Autor: Rey Colin
 char getRandUpperCaseChar() {
-    /* Return a random of the 26 chars after the value of 65 in ASCII. */
+    //Return a random of the 26 chars after the value of 65 in ASCII.
     return (char)(rand() % 26 + 65);
 }
 
-//Eine zufaellige Zahl wird erstellt
-//Autor: Rey Colin
-int getRandomNumber() {
-    return rand() % 100;
+
+//Ein zufaelliges Datum wird erstellt
+//Autor: Rey Colin, Naef Cedric
+int getRandomDate() {
+    return rand() % 80 + 1940;
 }
+
+
+//Eine zufaellige Zahl wird erstellt
+//Autor: Rey Colin, Naef Cedric
+int getRandomNumber() {
+    rand() % 900 + 1;
+}
+
 
 //Die Liste wird sortiert
 //Autor: Naef Cedric

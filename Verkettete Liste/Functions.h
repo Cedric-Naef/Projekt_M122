@@ -28,3 +28,5 @@ void DeleteList(struAuto* pStart);
 char getRandUpperCaseChar();
 
 int getRandomNumber();
+
+int getRandomDate();

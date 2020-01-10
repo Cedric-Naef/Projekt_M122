@@ -10,7 +10,7 @@
 
 
 
-void Bubblesort(int *array, int length)
+void Bubblesort(int* array, int length)
 {
     int i, j, tmp;
 
@@ -28,7 +28,7 @@ void Bubblesort(int *array, int length)
     }
 }
 
-void BubblesortC(char *array, int length)
+void BubblesortC(char* array, int length)
 {
   int i, j, tmp;
 
@@ -46,7 +46,7 @@ void BubblesortC(char *array, int length)
   }
 }
 
-void BubblesortBack(int *array, int length)
+void BubblesortBack(int* array, int length)
 {
     int i, j, tmp;
 
@@ -224,8 +224,8 @@ void Sort(struAuto* pStart)
     int anz = 1;;
     int UserInput;
     int srt = 0;
-    int jr[pAto->Jahrgang]; 
-    int prs[pAto->Preis];
+    int jr = pAto->Jahrgang;
+    int prs = pAto->Preis;
     
 
     while (pAto->pNext != pStart)

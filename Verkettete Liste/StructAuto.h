@@ -12,7 +12,7 @@ typedef struct Auto {
     int Key;
     char Marke[40];
     int Jahrgang;
-    int Preis;
+    double Preis;
     struct Auto* pNext;
     struct Auto* pPrev;
 } struAuto;

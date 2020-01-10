@@ -11,7 +11,11 @@
 
 void Bubblesort(int *array, int length);
 
+void BubblesortC(char* array, int length);
+
 void BubblesortBack(int* array, int length);
+
+void BubblesortBackC(char* array, int length);
 
 struAuto* CreateList(int Anzahl);
 
@@ -30,3 +34,5 @@ char getRandUpperCaseChar();
 int getRandomNumber();
 
 int getRandomDate();
+
+void Sort(struAuto* pStart);

@@ -39,10 +39,11 @@ int main()
             case 1:
                 if (pStart == NULL)
                 {
-                    printf("Wie viele Datensätze wollen Sie?\n");
+                    //Anzahl der Elemente eingeben
+                    printf("Wie viele Datensaetze wollen Sie?\n");
                     scanf_s("%i", &UserInput);
                     pStart = CreateList(UserInput);
-                    printf("Liste wird erstellt\n");
+                    printf("Liste wird erstellt\n\n");
                 }
                 else
                     printf("Bitte loeschen Sie Ihre Liste erst!\n\n");
@@ -50,24 +51,24 @@ int main()
                 break;
 
             case 2:
-                printf("Liste wird geloescht!\n");
+                printf("Liste wird geloescht!\n\n");
                 DeleteList(pStart);
                 pStart = NULL;
                 break;
 
             case 3:
-                printf("Element wird gesloescht\n");
+                printf("Element wird gesloescht\n\n");
                 tmp2 = GetElement(pStart, 2);
                 DeleteElement(pStart);
                 break;
 
             case 4:
-                printf("Liste wird sortiert!\n");
-                
+                printf("Liste wird sortiert!\n\n");
+                Sort(pStart);
                 break;
 
             case 5:
-                printf("Hier Ihre Liste\n");
+                printf("Hier Ihre Liste:\n");
                 PrintList(pStart);
                 break;
 
@@ -77,7 +78,7 @@ int main()
                 break;
 
             default:
-                printf("Eingabe ungueltig\n");
+                printf("Eingabe ungueltig\n\n");
                 break;
         }
     } while (Exit != 1);

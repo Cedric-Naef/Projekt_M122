@@ -12,6 +12,24 @@
 
 void Bubblesort(int *array, int length)
 {
+    int i, j, tmp;
+
+    for (i = 1; i < length; i++)
+    {
+        for (j = 0; j < length - i; j++)
+        {
+            if (array[j] > array[j + 1])
+            {
+                tmp = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = tmp;
+            }
+        }
+    }
+}
+
+void BubblesortC(char *array, int length)
+{
   int i, j, tmp;
 
   for (i = 1; i < length; i++)
@@ -28,7 +46,7 @@ void Bubblesort(int *array, int length)
   }
 }
 
-void BubblesortBack(int* array, int length)
+void BubblesortBack(int *array, int length)
 {
     int i, j, tmp;
 
@@ -36,7 +54,7 @@ void BubblesortBack(int* array, int length)
     {
         for (j = 0; j < length - i; j++)
         {
-            if (array[j] > array[j - 1])
+            if (array[j] < array[j - 1])
             {
                 tmp = array[j];
                 array[j] = array[j - 1];
@@ -46,14 +64,28 @@ void BubblesortBack(int* array, int length)
     }
 }
 
+void BubblesortBackC(char* array, int length)
+{
+    int i, j, tmp;
+
+    for (i = 1; i < length; i++)
+    {
+        for (j = 0; j < length - i; j++)
+        {
+            if (array[j] < array[j - 1])
+            {
+                tmp = array[j];
+                array[j] = array[j - 1];
+                array[j - 1] = tmp;
+            }
+        }
+    }
+}
 
 //Die Liste wird erstellt
 //Autor: Naef Cedric, Rey Colin
 struAuto* CreateList(int Anzahl)
 {
-    //Anzahl der Elemente eingeben
-    printf("Geben Sie die Anzahl der Elemente ein, die Sie wollen\n");
-    //scanf_s("%i", &Anzahl);
     struAuto* pLast = NULL;
     struAuto* pHead = NULL;
     int Index = 0;
@@ -162,7 +194,11 @@ void DeleteList(struAuto* pStart)
 //Autor: Rey Colin
 char getRandUpperCaseChar() {
     //Return a random of the 26 chars after the value of 65 in ASCII.
-    return (char)(rand() % 26 + 65);
+    int i;
+     //(char)(rand() % 26 + 65);
+    for (i = 0; i < 50; i++) {
+        return (char)(rand() % 25 + 65);
+    }
 }
 
 
@@ -184,56 +220,66 @@ int getRandomNumber() {
 //Autor: Naef Cedric
 void Sort(struAuto* pStart)
 {
+    struAuto* pAto = pStart;
+    int anz = 1;;
     int UserInput;
     int srt = 0;
-    struAuto* pAto = pStart;
+    int jr[pAto->Jahrgang]; 
+    int prs[pAto->Preis];
+    
+
+    while (pAto->pNext != pStart)
+    {
+        anz ++;
+        pAto = pAto->pNext;
+    }
     
     do {
         //Menü zur Auswahl der sortierung
         printf("Nach was wollen Sie Sortieren?\n"
-            "Nach Marke aufwärts sortieren ----> 1\n"
-            "Nach Marke abwärts sortieren -----> 2\n"
-            "Nach Jahrgang aufwärts sortieren -> 3\n"
-            "Nach Jahrgang abwärts sortieren --> 4\n"
-            "Nach Preis aufwärts sortieren ----> 5\n"
-            "Nach Preis abwärts sortieren -----> 6\n\n");
+            "Nach Marke aufwaerts sortieren ----> 1\n"
+            "Nach Marke abwaerts sortieren -----> 2\n"
+            "Nach Jahrgang aufwaerts sortieren -> 3\n"
+            "Nach Jahrgang abwaerts sortieren --> 4\n"
+            "Nach Preis aufwaerts sortieren ----> 5\n"
+            "Nach Preis abwaerts sortieren -----> 6\n\n");
         scanf_s("%i", &UserInput);
 
         switch (UserInput)
         {
         case 1:
-
-            printf("Die liste wurde der Marke nach aufwärts sortiert.\n");
+            BubblesortC(pAto->Marke, anz);
+            printf("Die liste wurde der Marke nach aufwaerts sortiert.\n\n");
             srt = 1;
             break;
 
         case 2:
-
-            printf("Die liste wurde der Marke nach abwärts sortiert.\n");
+            BubblesortBackC(pAto->Marke, anz);
+            printf("Die liste wurde der Marke nach abwaerts sortiert.\n\n");
             srt = 1;
             break;
 
         case 3:
-
-            printf("Die liste wurde dem Jahrgang nach aufwärts sortiert.\n");
+            Bubblesort(pAto->Jahrgang, anz);
+            printf("Die liste wurde dem Jahrgang nach aufwaerts sortiert.\n\n");
             srt = 1;
             break;
 
         case 4:
-
-            printf("Die liste wurde dem Jahrgang nach abwärts sortiert.\n");
+            BubblesortBack(jr, anz);
+            printf("Die liste wurde dem Jahrgang nach abwaerts sortiert.\n\n");
             srt = 1;
             break;
 
         case 5:
-
-            printf("Die liste wurde dem Preis nach aufwärts sortiert.\n");
+            Bubblesort(prs, anz);
+            printf("Die liste wurde dem Preis nach aufwaerts sortiert.\n\n");
             srt = 1;
             break;
 
         case 6:
-
-            printf("Die liste wurde dem Preis nach abwärts sortiert.\n");
+            BubblesortBack(prs, anz);
+            printf("Die liste wurde dem Preis nach abwaerts sortiert.\n\n");
             srt = 1;
             break;
 
@@ -242,4 +288,6 @@ void Sort(struAuto* pStart)
             break;
         }
     } while (srt != 1);
+
+    srt = 0;
 }

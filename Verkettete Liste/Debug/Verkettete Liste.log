@@ -1,5 +1,4 @@
 ﻿  Functions.cpp
-  StructAuto.cpp
-  Code wird generiert...
-  LINK : C:\Users\Cedric\Documents\GitHub\Projekt_M122\Debug\Verkettete Liste.exe wurde nicht gefunden oder beim letzten inkrementellen Linkvorgang nicht erstellt; vollständiger Link wird durchgeführt.
-  Verkettete Liste.vcxproj -> C:\Users\Cedric\Documents\GitHub\Projekt_M122\Debug\Verkettete Liste.exe
+C:\Users\Cedric\Documents\GitHub\Projekt_M122\Verkettete Liste\Functions.cpp(159,12): warning C4477: "printf": Die Formatzeichenfolge "%f" erfordert ein Argument vom Typ "double", das variadic-Argument "4" weist aber den Typ "int" auf.
+C:\Users\Cedric\Documents\GitHub\Projekt_M122\Verkettete Liste\Functions.cpp(202): warning C4715: "getRandUpperCaseChar": Nicht alle Codepfade geben einen Wert zurück.
+C:\Users\Cedric\Documents\GitHub\Projekt_M122\Verkettete Liste\Functions.cpp(263): error C4700: Die nicht initialisierte lokale Variable "jr" wurde verwendet.

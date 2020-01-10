@@ -41,8 +41,10 @@ int main()
             case 1:
                 if (pStart == NULL)
                 {
+                    printf("Wie viele Datensätze wollen Sie?\n");
+                    scanf_s("%i", &UserInput);
+                    pStart = CreateList(UserInput);
                     printf("Liste wird erstellt\n");
-                    pStart = CreateList(10);
                 }
                 else
                     printf("Bitte loeschen Sie Ihre Liste erst!\n");

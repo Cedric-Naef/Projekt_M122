@@ -28,6 +28,8 @@ void Bubblesort(int *array, int length)
   }
 }
 
+//Die Liste wird erstellt
+//Autor: Naef Cedric, Rey Colin
 struAuto* CreateList(int Anzahl)
 {
     //Anzahl der Elemente eingeben
@@ -81,6 +83,8 @@ void Randomize() {
     }
 }
 
+//Die Liste wird ausgegeben
+//Autor: Rey Colin
 void PrintList(struAuto *pStart)
 {
     struAuto* pAto = pStart;
@@ -92,6 +96,8 @@ void PrintList(struAuto *pStart)
     PrintElement(pAto);
 }
 
+//Ein Element wird gesucht
+//Autor: Rey Colin
 struAuto* GetElement(struAuto* pStart, int Index)
 {
     int CurrentIndex = 0;
@@ -112,12 +118,15 @@ struAuto* GetElement(struAuto* pStart, int Index)
     //PrintElement(pAto);
 }
 
+//Das Element wird ausgegeben
+//Autor: Rey Colin
 void PrintElement(struAuto* pElement)
 {
     printf("\nKey: %d\n Marke: %s\n Jahrgang: %i\n Preis: %f Tausend\n", pElement->Key, pElement->Marke, pElement->Jahrgang, pElement->Preis);
 }
 
-//L�scht ein Element
+//Loescht ein Element
+//Autor: Rey Colin
 struAuto* DeleteElement(struAuto* pElement) {
 
     //Auto* tmp1 = pElement->pPrev->pNext;
@@ -132,7 +141,8 @@ struAuto* DeleteElement(struAuto* pElement) {
     return tmp;
 }
 
-//L�scht die Liste
+//Loescht die Liste
+//Autor: Rey Colin
 void DeleteList(struAuto* pStart)
 {
     struAuto* pAto = pStart;
@@ -143,19 +153,21 @@ void DeleteList(struAuto* pStart)
     free(pAto);
 }
 
-
+//Ein zufaelliger Buchstabe wird erstellt
+//Autor: Rey Colin
 char getRandUpperCaseChar() {
     /* Return a random of the 26 chars after the value of 65 in ASCII. */
     return (char)(rand() % 26 + 65);
 }
 
-
-
+//Eine zufaellige Zahl wird erstellt
+//Autor: Rey Colin
 int getRandomNumber() {
     return rand() % 100;
 }
 
-
+//Die Liste wird sortiert
+//Autor: Naef Cedric
 void Sort()
 {
     int UserInput;

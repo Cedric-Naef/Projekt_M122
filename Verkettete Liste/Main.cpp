@@ -45,7 +45,7 @@ int main()
                     printf("Liste wird erstellt\n");
                 }
                 else
-                    printf("Bitte loeschen Sie Ihre Liste erst!\n");
+                    printf("Bitte loeschen Sie Ihre Liste erst!\n\n");
 
                 break;
 

@@ -39,7 +39,7 @@ struAuto* CreateList(int Anzahl)
     struAuto* pLast = NULL;
     struAuto* pHead = NULL;
     int Index = 0;
-    // Elemente erzeugen, mit Daten abf�llen   
+    // Elemente erzeugen, mit Daten abfuellen   
     for (int i = 0; i < Anzahl; i++) {
         struAuto* pAuto = (struAuto*)malloc(sizeof(struAuto));
         pAuto->Key = i;

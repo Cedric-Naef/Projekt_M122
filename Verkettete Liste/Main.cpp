@@ -30,9 +30,11 @@ int main()
             "1 -> Liste erstellen\n"
             "2 -> Liste loeschen\n"
             "3 -> Element loeschen\n"
-            "4 -> Liste sortieren\n"
+            "4 -> Liste aufsteigend sortieren\n"
+            "7 -> Liste absteigend sortieren\n"
+            "6 -> Element nach eigenschaft löschen\n"
             "5 -> Liste ausgeben\n"
-            "6 -> Programm beenden\n\n");
+            "8 -> Programm beenden\n\n");
 
         scanf_s("%i", &UserInput);
 
@@ -58,28 +60,40 @@ int main()
             case 3:
                 printf("Element gesloescht\n");
                 tmp2 = GetElement(pListHead, 2);
-                DeleteElement(tmp2);
+                DeleteElement(pListHead, tmp2);
                 break;
 
             case 4:
                 printf("Liste wird sortiert!\n");
-                sortList(pListHead);
+                SortListFoward(pListHead);
                 break;
 
             case 5:
                 printf("Hier Ihre Liste");
-                PrintList(pListHead);
+                if (pListHead != NULL)
+                {
+                    PrintList(pListHead);
+                }
+
                 break;
 
             case 6:
+                printf("Delete element by property");
+                scanf_s("%i", &UserInput);
+                DeleteElementsByProperty2(pListHead, UserInput);
+                break;
+
+            case 7:
+                printf("Liste wird sortiert!\n");
+                SortListBackward(pListHead);
+                break;
+
+            case 8:
                 printf("Programm wird beendet");
                 Exit = 1;
                 break;
 
-            case 7:
-                scanf_s("%i", &UserInput);
-                DeleteElementsByProperty(pListHead, UserInput);
-                break;
+
 
             default:
                 printf("Eingabe ungueltig");

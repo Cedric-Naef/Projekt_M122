@@ -9,55 +9,59 @@
 #include "StructAuto.h"
 
 
-void sortList(struAuto* pStart) {
-    //struAuto* pAutoA = pListHead;
-    //struAuto* pAutoB = pListHead->pNext;
-    //int swaps = 1;
-    //while(swaps){
-    //    swaps = 0;
-    //    pAutoA = pAutoB;
-    //    pAutoB = pAutoB->pNext;
-    //    while (pAutoA->pNext != pListHead) {
-    //        // bedingung
-    //        if (pAutoA->Jahrgang > pAutoB->Jahrgang) {
-    //            printf("swap");
-    //            if (pAutoA == pListHead) {
-    //                pListHead = pAutoB;
-    //            }
-    //            SwapElement(pAutoA, pAutoB);
-    //            swaps += 1;
-    //        }
-    //        pAutoA = pAutoB;
-    //        pAutoB = pAutoB->pNext;
-    //    }
-    //}
-    struAuto* help = NULL;
-    struAuto* store = pStart;
-    int swap_data;
-    while (store->pNext != pStart && pStart != NULL) {
-        help = store;
-        while (help->pNext != pStart) {
-            if (help->Jahrgang < help->pNext->Jahrgang) {
-                SwapElement(help, store);
+void SortListFoward(struAuto* pListHead) {
+    if (pListHead != NULL)
+    {
+        struAuto* help = NULL;
+        struAuto* store = pListHead;
+        int swap_data;
+        while (store->pNext != pListHead && pListHead != NULL) {
+            help = store;
+            while (help->pNext != pListHead) {
+                if (help->Jahrgang < help->pNext->Jahrgang) {
+                    SwapElement(help, store);
+                }
+                help = help->pNext;
             }
-            help = help->pNext;
+            store = store->pNext;
         }
-        store = store->pNext;
     }
 }
 
-void SwapElement(struAuto* pAutoA, struAuto* pAutoB)
-{
-    pAutoA = pAutoB;
-    pAutoB = pAutoB->pNext;
-    struAuto* pTemp = pAutoA->pPrev;
-    pAutoA->pNext = pAutoB->pNext;
-    pAutoA->pPrev = pAutoB;
-    pAutoA->pNext->pPrev = pAutoA;
+void SortListBackward(struAuto* pListHead) {
+    if (pListHead != NULL)
+    {
+        struAuto* help = NULL;
+        struAuto* store = pListHead;
+        int swap_data;
+        while (store->pNext != pListHead && pListHead != NULL) {
+            help = store;
+            while (help->pNext != pListHead) {
+                if (help->Jahrgang > help->pNext->Jahrgang) {
+                    SwapElement(help, store);
+                }
+                help = help->pNext;
+            }
+            store = store->pNext;
+        }
+    }
+}
 
-    pAutoB->pNext = pAutoA;
-    pAutoB->pPrev = pTemp;
-    pAutoB->pPrev->pNext = pAutoB;
+void SwapElement(struAuto* pElementA, struAuto* pElementB)
+{
+    if (pElementA != NULL && pElementB != NULL)
+    {
+        pElementA = pElementB;
+        pElementB = pElementB->pNext;
+        struAuto* pTemp = pElementA->pPrev;
+        pElementA->pNext = pElementB->pNext;
+        pElementA->pPrev = pElementB;
+        pElementA->pNext->pPrev = pElementA;
+
+        pElementB->pNext = pElementA;
+        pElementB->pPrev = pTemp;
+        pElementB->pPrev->pNext = pElementB;
+    }
 }
 
 void Bubblesort(int *array, int length)
@@ -80,41 +84,42 @@ void Bubblesort(int *array, int length)
 
 struAuto* CreateList(int Anzahl)
 {
-    //Anzahl der Elemente eingeben
-    printf("Geben Sie die Anzahl der Elemente ein, die Sie wollen\n");
-    //scanf_s("%i", &Anzahl);
-    struAuto* pLast = NULL;
-    struAuto* pHead = NULL;
-    int Index = 0;
-    // Elemente erzeugen, mit Daten abf�llen   
-    for (int i = 0; i < Anzahl; i++) {
-        struAuto* pAuto = (struAuto*)malloc(sizeof(struAuto));
-        pAuto->Key = i;
+    if (Anzahl != NULL)
+    {
+        //Anzahl der Elemente eingeben
+        printf("Geben Sie die Anzahl der Elemente ein, die Sie wollen\n");
+        //scanf_s("%i", &Anzahl);
+        struAuto* pLast = NULL;
+        struAuto* pHead = NULL;
+        int Index = 0;
+        // Elemente erzeugen, mit Daten abf�llen   
+        for (int i = 0; i < Anzahl; i++) {
+            struAuto* pAuto = (struAuto*)malloc(sizeof(struAuto));
+            pAuto->Key = i;
 
-        
-        char Marke[40];
-        Marke[0] = getRandUpperCaseChar();
-        Marke[1] = '\0';
-        strcpy_s(pAuto->Marke, Marke);
-        pAuto->Jahrgang = 1900;
-        pAuto->Preis = getRandomNumber();
-        if (i != 0)
-        {
-            pLast = pHead->pPrev;
 
-            pAuto->pNext = pHead;
-            pAuto->pPrev = pLast;
-            pHead->pPrev = pAuto;
-            pLast->pNext = pAuto;
+            pAuto->Marke[0] = getRandUpperCaseChar();
+            pAuto->Marke[1] = '\0';
+            pAuto->Jahrgang = 1900;
+            pAuto->Preis = getRandomNumber();
+            if (i != 0)
+            {
+                pLast = pHead->pPrev;
+
+                pAuto->pNext = pHead;
+                pAuto->pPrev = pLast;
+                pHead->pPrev = pAuto;
+                pLast->pNext = pAuto;
+            }
+            else {
+                pHead = pAuto;
+                pHead->pNext = pHead;
+                pHead->pPrev = pHead;
+            }
+
         }
-        else {
-            pHead = pAuto;
-            pHead->pNext = pHead;
-            pHead->pPrev = pHead;
-        }
-            
+        return pHead;
     }
-    return pHead;
 }
 
 void Randomize() {
@@ -137,69 +142,100 @@ void Randomize() {
     }
 }
 
-void DeleteElementsByProperty(struAuto *pListHead, int Property)
+struAuto* DeleteElementsByProperty(struAuto *pListHead, int Property)
 {
-    struAuto* CurrentElement = pListHead;
-    while( CurrentElement->pNext != pListHead && pListHead != NULL)
+    if (pListHead != NULL && Property != NULL)
     {
-        if (CurrentElement == pListHead)
+        struAuto* Rtrn = NULL;
+        struAuto* pCurrentElement = pListHead;
+        while (pCurrentElement->pNext != pListHead)
         {
 
+
+            if (Property == pCurrentElement->Jahrgang)
+            {
+                printf("The following elent in list is getting deleted: \n\n");
+                PrintElement(pCurrentElement);
+                if (pCurrentElement == pListHead)
+                {
+                    pListHead = pCurrentElement->pNext;
+                }
+
+                Rtrn = DeleteElement(pListHead, pCurrentElement);
+            } else
+            {
+                pCurrentElement = pCurrentElement->pNext;
+            }
+
+            pCurrentElement = DeleteElement(pCurrentElement);
+
+            if (pCurrentElement == NULL)
+            {
+                return NULL;
+            }
         }
 
-        if (Property == CurrentElement->Jahrgang)
-        {
-            printf("The following elent in list is getting deleted: \n");
-            PrintElement(CurrentElement);
-            pListHead = CurrentElement->pNext;
-            CurrentElement = DeleteElement(CurrentElement);   
-        }
-        else
-        {
-            CurrentElement = CurrentElement->pNext;
-        }
-
-
+        return Rtrn;
     }
 
-    /* struAuto* CurrentElement = pListHead;
-    while (CurrentElement->pNext != pListHead)
+    /* struAuto* pCurrentElement = pListHead;
+    while (pCurrentElement->pNext != pListHead)
     {
-        CurrentElement = DeleteElement(CurrentElement);
+        pCurrentElement = DeleteElement(pCurrentElement);
     }
-    free(CurrentElement);
-    PrintElement(CurrentElement);*/
+    free(pCurrentElement);
+    PrintElement(pCurrentElement);*/
+
+    //If all failes return NULL
+    return NULL;
 }
 
 void PrintList(struAuto* pStart)
 {
-    struAuto* pAto = pStart;
-    while (pAto->pNext != pStart)
+    if (pStart != NULL)
     {
+        struAuto* pAto = pStart;
+
+        //Checks if there are more then one elements then one
+        while (pAto->pNext != pStart)
+        {
+            PrintElement(pAto);
+            pAto = pAto->pNext;
+        }
+
+        //Print last element
         PrintElement(pAto);
-        pAto = pAto->pNext;
     }
-    PrintElement(pAto);
 }
 
 struAuto* GetElement(struAuto* pListHead, int Index)
 {
-    int CurrentIndex = 0;
-    struAuto* Rtrn = NULL;
-
-    struAuto* pAto = pListHead;
-    while (pAto->pNext != pListHead)
+    if (pListHead != NULL && Index != NULL)
     {
-        if (CurrentIndex == Index)
+        int CurrentIndex = 0;
+
+        struAuto* pCurrentElement = pListHead;
+        while (pCurrentElement->pNext != pListHead)
         {
-            PrintElement(pAto);
-            Rtrn = pAto;
+            if (CurrentIndex == Index)
+            {
+                PrintElement(pCurrentElement);
+                return pCurrentElement;
+            }
+            pCurrentElement = pCurrentElement->pNext;
+            CurrentIndex++;
         }
-        pAto = pAto->pNext;
-        CurrentIndex++;
+
+        if (pListHead == pCurrentElement && Index == 0)
+        {
+            //If only one element is in list return ListHead
+            return pListHead;
+        }
     }
-    return Rtrn;
-    //PrintElement(CurrentElement);
+    //PrintElement(pCurrentElement);
+
+    //If all fails return null
+    return NULL;
 }
 
 void PrintElement(struAuto* pElement)
@@ -210,30 +246,107 @@ void PrintElement(struAuto* pElement)
 //L�scht ein Element
 struAuto* DeleteElement(struAuto* pElement) {
 
-    //Auto* tmp1 = pElement->pPrev->pNext;
-    //Auto* tmp2 = pElement->pNext->pPrev;
+    //Auto* tmp1 = pElementToBeDeleted->pPrev->pNext;
+    //Auto* tmp2 = pElementToBeDeleted->pNext->pPrev;
 
-    if (pElement->pNext == pElement) {
+    if (pElement != NULL)
+    {
+        if (pElement->pNext == pElement) {
+            free(pElement);
+            return NULL;
+        }
+        pElement->pPrev->pNext = pElement->pNext;
+        pElement->pNext->pPrev = pElement->pPrev;
+
+        struAuto* tmp = pElement->pNext;
         free(pElement);
-        return NULL;
+        return tmp;
     }
-    pElement->pPrev->pNext = pElement->pNext;
-    pElement->pNext->pPrev = pElement->pPrev;
-    
-    struAuto* tmp = pElement->pNext;
-    free(pElement);
-    return tmp;
+
 }
 
-//L�scht die Liste
-void DeleteList(struAuto* pStart)
+struAuto* DeleteElement(struAuto* pListHead, struAuto* pElementToBeDeleted)
 {
-    struAuto* pAto = pStart;
-    while (pAto->pNext != pStart && pStart !=NULL)
+    if (pListHead !=  NULL && pElementToBeDeleted != NULL)
     {
-        pAto = DeleteElement(pAto);
+        //Checks if list hast only one element
+        if (pListHead->pNext == pListHead)
+        {
+            free(pListHead);
+
+            //Return null if last element was deleted
+            return NULL;
+        }
+
+        //If the ListHead is to be deleted set ListHead to the next Element in List
+        if (pListHead == pElementToBeDeleted)
+        {
+            pListHead = pElementToBeDeleted->pNext;
+        }
+
+        //Relink previous and next element from the item is to be deleted
+        pElementToBeDeleted->pPrev->pNext = pElementToBeDeleted->pNext;
+        pElementToBeDeleted->pNext->pPrev = pElementToBeDeleted->pPrev;
+
+        free(pElementToBeDeleted);
+        return pListHead;
     }
-    free(pAto);
+}
+
+//Deletes whole the list
+void DeleteList(struAuto* pListHead)
+{
+    if (pListHead != NULL)
+    {
+        //Sets pCurrentElement to ListHead
+        struAuto* pCurrentElement = pListHead;
+
+        while (pCurrentElement->pNext != pListHead)
+        {
+
+            pCurrentElement = DeleteElement(pCurrentElement);
+
+            if (pCurrentElement == NULL)
+            {
+                return;
+            }
+        }
+
+        //Deletes last element in list
+        free(pCurrentElement);
+    }
+}
+
+void DeleteElementsByProperty2(struAuto* pListHead, int Property)
+{
+    if (pListHead != NULL)
+    {
+        //Sets pCurrentElement to ListHead
+        struAuto* pCurrentElement = pListHead;
+
+        while (pCurrentElement->pNext != pListHead)
+        {
+            if (pCurrentElement->Jahrgang == Property)
+            {
+                struAuto* pElementToBeDeleted = pCurrentElement;
+                pCurrentElement = pCurrentElement->pNext;
+                DeleteElement(pListHead, pElementToBeDeleted);
+            } else
+            {
+                pCurrentElement = pCurrentElement->pNext;
+            }
+
+            if (pCurrentElement == NULL)
+            {
+                return;
+            }
+        }
+
+        if (pCurrentElement->Jahrgang == Property)
+        {
+            free(pCurrentElement);
+        }
+    }
 }
 
 

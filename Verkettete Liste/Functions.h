@@ -9,7 +9,9 @@
 #include "StructAuto.h"
 
 
-void sortList(struAuto* pHead);
+void SortListFoward(struAuto* pHead);
+
+void SortListBackward(struAuto* pListHead);
 
 void SwapElement(struAuto* pAutoA, struAuto* pAutoB);
 
@@ -19,7 +21,9 @@ struAuto* CreateList(int Anzahl);
 
 void Randomize();
 
-void DeleteElementsByProperty(struAuto* pStart, int Property);
+struAuto* DeleteElementsByProperty(struAuto* pStart, int Property);
+
+void DeleteElementsByProperty2(struAuto* pStart, int Property);
 
 void PrintList(struAuto* pStart);
 
@@ -28,6 +32,8 @@ struAuto* GetElement(struAuto* pStart, int Index);
 void PrintElement(struAuto* pElement);
 
 struAuto* DeleteElement(struAuto* pElement);
+
+struAuto* DeleteElement(struAuto* pListHead, struAuto* pElementToBeDeleted);
 
 void DeleteList(struAuto* pStart);
 
